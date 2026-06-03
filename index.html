@@ -352,7 +352,7 @@
             production systems.
           </p>
           <p>
-            I'm currently pursuing a <strong>Post Graduate Program in Cloud Computing</strong> and enjoy
+            I've completed a <strong>Post Graduate Program in Cloud Computing</strong> and enjoy
             writing hands-on <strong>DevOps learning guides</strong> to share what I learn.
           </p>
           <div class="stats">
@@ -610,6 +610,7 @@
     const animateCount = (el) => {
       const target = el.dataset.target;
       const suffix = el.dataset.suffix || '';
+      if (!/^\d+$/.test(target)) { el.textContent = target; return; }
       const num = parseInt(target, 10);
       if (isNaN(num)) { el.textContent = target; return; }
       let current = 0;
