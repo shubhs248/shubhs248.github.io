@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubham Sharma — DevOps & Platform Engineer</title>
+  <meta name="description" content="Shubham Sharma — DevOps & Platform Engineer with 7+ years in CI/CD, Kubernetes, observability, and automation." />
+  <meta name="author" content="Shubham Sharma" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Shubham Sharma — DevOps & Platform Engineer" />
+  <meta property="og:description" content="CI/CD · Kubernetes · Observability · Automation · Platform Engineering" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shubhs248.github.io" />
+  <meta property="og:image" content="https://shubhs248.github.io/profile.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="https://shubhs248.github.io/profile.png" />
+
+  <!-- Favicon: inline SVG monogram (crisp at any size) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2338bdf8'/%3E%3Cstop offset='1' stop-color='%23818cf8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Segoe UI,Arial,sans-serif' font-size='52' font-weight='700' fill='%2306101f' text-anchor='middle'%3ESS%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-soft: #111a2e;
+      --card: #16213e;
+      --card-hover: #1c2a4d;
+      --text: #e6edf7;
+      --muted: #9aa8c2;
+      --accent: #38bdf8;
+      --accent-2: #818cf8;
+      --border: #243150;
+      --radius: 16px;
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f4f7fb;
+      --bg-soft: #e9eff7;
+      --card: #ffffff;
+      --card-hover: #f0f5fc;
+      --text: #0f1c33;
+      --muted: #51607a;
+      --accent: #0284c7;
+      --accent-2: #4f46e5;
+      --border: #d6e0ee;
+      --shadow: 0 10px 40px rgba(20, 40, 80, 0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, nav, .stat, .skill-card, .project-card, .exp, .to-top {
+      transition: background .3s ease, color .3s ease, border-color .3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(1080px, 92%); margin: 0 auto; }
+
+    /* ---------- Navbar ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 17, 32, 0.78);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+    }
+    .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: var(--muted); font-weight: 500; font-size: 0.95rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+    .theme-toggle {
+      background: var(--bg-soft); border: 1px solid var(--border); color: var(--text);
+      width: 38px; height: 38px; border-radius: 10px; font-size: 1rem; cursor: pointer;
+      display: grid; place-items: center; transition: border-color .2s, transform .2s;
+    }
+    .theme-toggle:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    /* ---------- Hero ---------- */
+    header {
+      position: relative;
+      padding: 110px 0 90px;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(circle, rgba(56,189,248,0.18), transparent 60%);
+      filter: blur(40px); pointer-events: none; z-index: 0;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+    .eyebrow {
+      display: inline-block; font-family: 'JetBrains Mono', monospace;
+      color: var(--accent); font-size: 0.85rem; letter-spacing: 0.05em;
+      margin-bottom: 18px; padding: 6px 14px;
+      border: 1px solid var(--border); border-radius: 999px; background: var(--bg-soft);
+    }
+    h1 { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+    h1 .grad {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub { color: var(--muted); font-size: 1.2rem; margin: 22px 0 32px; max-width: 620px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 0.95rem;
+      transition: transform .2s, box-shadow .2s, background .2s; cursor: pointer;
+    }
+    .btn-primary { background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: #06101f; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(56,189,248,0.35); }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); background: var(--bg-soft); }
+    .btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    /* ---------- Sections ---------- */
+    section { padding: 80px 0; }
+    .section-head { margin-bottom: 44px; }
+    .section-head .kicker { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.85rem; letter-spacing: 0.08em; }
+    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; }
+    .section-head p { color: var(--muted); margin-top: 10px; max-width: 620px; }
+
+    /* ---------- About ---------- */
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+    .about-text p { color: var(--muted); margin-bottom: 16px; }
+    .about-text strong { color: var(--text); }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; text-align: center; }
+    .stat .num { font-size: 1.9rem; font-weight: 800; color: var(--accent); }
+    .stat .label { color: var(--muted); font-size: 0.85rem; }
+
+    /* ---------- Skills ---------- */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; transition: transform .2s, border-color .2s; }
+    .skill-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .skill-card h3 { font-size: 1.05rem; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .skill-card .icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 9px; background: var(--bg-soft); font-size: 1.1rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--muted); background: var(--bg-soft); border: 1px solid var(--border); padding: 5px 11px; border-radius: 8px; }
+
+    /* ---------- Projects ---------- */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+    .project-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 28px; display: flex; flex-direction: column; transition: transform .2s, border-color .2s, background .2s;
+    }
+    .project-card:hover { transform: translateY(-5px); border-color: var(--accent); background: var(--card-hover); }
+    .project-card .badge { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--accent); margin-bottom: 12px; }
+    .project-card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+    .project-card p { color: var(--muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 18px; }
+    .project-card .stack { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    /* ---------- Experience ---------- */
+    .timeline { display: flex; flex-direction: column; gap: 18px; }
+    .exp { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; }
+    .exp .exp-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+    .exp .role { font-weight: 700; font-size: 1.1rem; }
+    .exp .period { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.82rem; }
+    .exp .org { color: var(--muted); font-size: 0.92rem; margin-bottom: 12px; }
+    .exp ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .exp li { color: var(--muted); font-size: 0.94rem; padding-left: 20px; position: relative; }
+    .exp li::before { content: "▹"; color: var(--accent); position: absolute; left: 0; }
+
+    /* ---------- Contact ---------- */
+    .contact { text-align: center; }
+    .contact .card {
+      background: linear-gradient(135deg, var(--card), var(--bg-soft));
+      border: 1px solid var(--border); border-radius: 24px; padding: 60px 30px; box-shadow: var(--shadow);
+    }
+    .contact h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; }
+    .contact p { color: var(--muted); margin: 14px auto 28px; max-width: 480px; }
+    .social-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ---------- Footer ---------- */
+    footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; color: var(--muted); font-size: 0.88rem; }
+
+    /* ---------- Reveal animation ---------- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ---------- Scroll progress bar ---------- */
+    .progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      z-index: 100; transition: width .1s ease-out;
+    }
+
+    /* ---------- Active nav link ---------- */
+    .nav-links a.active { color: var(--accent); }
+
+    /* ---------- Hero grid backdrop + animated blobs ---------- */
+    header::before {
+      content: ""; position: absolute; inset: 0; z-index: 0; opacity: 0.4;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 75%);
+    }
+    .blob {
+      position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.45; z-index: 0;
+      pointer-events: none; animation: float 14s ease-in-out infinite;
+    }
+    .blob.b1 { width: 320px; height: 320px; background: #38bdf8; top: -60px; left: -40px; }
+    .blob.b2 { width: 280px; height: 280px; background: #818cf8; top: 40px; right: -60px; animation-delay: -5s; }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(20px, 30px) scale(1.08); }
+    }
+
+    /* ---------- Hero avatar ---------- */
+    .avatar {
+      width: 108px; height: 108px; border-radius: 50%; display: grid; place-items: center;
+      overflow: hidden; margin-bottom: 26px; padding: 3px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 4px rgba(56,189,248,0.15), 0 10px 30px rgba(56,189,248,0.3);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(56,189,248,0.15), 0 10px 30px rgba(56,189,248,0.3); }
+      50% { box-shadow: 0 0 0 8px rgba(56,189,248,0.08), 0 14px 40px rgba(129,140,248,0.4); }
+    }
+
+    /* ---------- Available badge ---------- */
+    .availability {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 26px;
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .availability .dot {
+      width: 9px; height: 9px; border-radius: 50%; background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34,197,94,0.6); animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+      70% { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+
+    /* ---------- Back to top ---------- */
+    .to-top {
+      position: fixed; bottom: 26px; right: 26px; z-index: 90;
+      width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--border);
+      background: var(--card); color: var(--accent); font-size: 1.2rem; cursor: pointer;
+      display: grid; place-items: center; opacity: 0; transform: translateY(12px);
+      transition: opacity .3s, transform .3s, background .2s; box-shadow: var(--shadow);
+    }
+    .to-top.show { opacity: 1; transform: none; }
+    .to-top:hover { background: var(--card-hover); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blob, .avatar, .availability .dot { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column; gap: 14px;
+        position: absolute; top: 64px; right: 4%; left: 4%;
+        background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px;
+      }
+      .stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- ===== Navbar ===== -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">shubhs<span>248</span></div>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">🌙</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <header>
+    <div class="hero-glow"></div>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="container hero-content">
+      <div class="avatar"><img src="profile.png" alt="Shubham Sharma" /></div>
+      <span class="eyebrow">$ whoami</span>
+      <h1>Shubham Sharma<br /><span class="grad">DevOps &amp; Platform Engineer</span></h1>
+      <p class="hero-sub">
+        7+ years building CI/CD pipelines, running containers on Kubernetes, automating
+        infrastructure, and keeping production observable and reliable.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#experience">View my work →</a>
+        <a class="btn btn-ghost" href="https://github.com/shubhs248" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+      <div class="availability"><span class="dot"></span> Open to DevOps / Cloud / SRE opportunities</div>
+    </div>
+  </header>
+
+  <!-- ===== About ===== -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">// about</span>
+        <h2>Who I am</h2>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p>
+            I'm a <strong>DevOps &amp; Platform Engineer</strong> based in Pune, India, with
+            <strong>7+ years of experience</strong> in CI/CD, infrastructure automation, and observability.
+            I work across the full delivery lifecycle — from <strong>building and packaging</strong> apps
+            with Docker, to <strong>shipping them</strong> through CI/CD, to <strong>running and monitoring</strong>
+            them on Kubernetes.
+          </p>
+          <p>
+            I enjoy <strong>automation and platform tooling</strong>: writing Python and Bash to remove toil,
+            authoring infrastructure-as-code with Terraform and Ansible, building developer-facing
+            services with FastAPI, and designing <strong>Prometheus/Grafana observability</strong> for
+            production systems.
+          </p>
+          <p>
+            I'm currently pursuing a <strong>Post Graduate Program in Cloud Computing</strong> and enjoy
+            writing hands-on <strong>DevOps learning guides</strong> to share what I learn.
+          </p>
+          <div class="stats">
+            <div class="stat"><div class="num" data-target="7" data-suffix="+">7+</div><div class="label">Years experience</div></div>
+            <div class="stat"><div class="num" data-target="4" data-suffix="×">4×</div><div class="label">Cloud certifications</div></div>
+            <div class="stat"><div class="num" data-target="24/7">24/7</div><div class="label">Reliability focus</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Skills ===== -->
+  <section id="skills" style="background: var(--bg-soft);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">// stack</span>
+        <h2>What I work with</h2>
+        <p>The tools and technologies I use to build, ship, and run software.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <h3><span class="icon">🐳</span> Containers & Orchestration</h3>
+          <div class="tags">
+            <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Helm</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="icon">🔁</span> CI/CD & IaC</h3>
+          <div class="tags">
+            <span class="tag">Jenkins</span><span class="tag">Azure DevOps</span>
+            <span class="tag">Terraform</span><span class="tag">Ansible</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="icon">💻</span> Languages & Scripting</h3>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Bash</span>
+            <span class="tag">Groovy</span><span class="tag">FastAPI</span><span class="tag">SQL</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="icon">📊</span> Observability</h3>
+          <div class="tags">
+            <span class="tag">Prometheus</span><span class="tag">Grafana</span>
+            <span class="tag">Loki</span><span class="tag">Datadog</span><span class="tag">Splunk</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="icon">☁️</span> Cloud</h3>
+          <div class="tags">
+            <span class="tag">AWS</span><span class="tag">Azure</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="icon">📦</span> Artifact & SCM</h3>
+          <div class="tags">
+            <span class="tag">Nexus</span><span class="tag">Artifactory</span>
+            <span class="tag">Git</span><span class="tag">Bitbucket</span><span class="tag">Perforce</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Experience ===== -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">// experience</span>
+        <h2>Where I've worked</h2>
+        <p>7+ years across platform engineering, DevOps, and IT operations.</p>
+      </div>
+      <div class="timeline">
+        <div class="exp reveal">
+          <div class="exp-head">
+            <span class="role">DevOps Engineer — Platform Tooling & Observability</span>
+            <span class="period">Jun 2024 – Present</span>
+          </div>
+          <div class="org">Amdocs · Pune, India</div>
+          <ul>
+            <li>Built AI-powered internal tool servers on Kubernetes with Helm, enabling self-service infrastructure operations.</li>
+            <li>Developed a real-time operations dashboard (FastAPI + PostgreSQL + Redis) with automated email alerting for service health.</li>
+            <li>Set up Prometheus + Grafana monitoring across multiple regions with alerting on replication, sync health, and capacity.</li>
+            <li>Built CI/CD pipelines for provisioning, certificate rotation, dependency scanning, and build lifecycle management.</li>
+          </ul>
+        </div>
+        <div class="exp reveal">
+          <div class="exp-head">
+            <span class="role">DevOps Engineer</span>
+            <span class="period">Jan 2022 – Jun 2024</span>
+          </div>
+          <div class="org">Amdocs · Pune, India</div>
+          <ul>
+            <li>Built and maintained CI/CD pipelines (Jenkins + Azure DevOps) for 20+ applications across environments.</li>
+            <li>Containerized legacy apps with Docker/Kubernetes; used Terraform for repeatable multi-environment provisioning.</li>
+            <li>Implemented SonarQube quality gates and artifact management — reduced reported vulnerabilities by 40%.</li>
+            <li>Wrote Ansible playbooks for SSL rotation, tool upgrades, and fleet-wide config management.</li>
+          </ul>
+        </div>
+        <div class="exp reveal">
+          <div class="exp-head">
+            <span class="role">Associate DevOps Engineer</span>
+            <span class="period">Jun 2021 – Jan 2022</span>
+          </div>
+          <div class="org">Cognizant · Pune, India</div>
+          <ul>
+            <li>Built Jenkins CI/CD pipelines, reducing manual deployment effort by 60%.</li>
+            <li>Integrated monitoring and incident management tooling, improving SLA compliance by 20%.</li>
+          </ul>
+        </div>
+        <div class="exp reveal">
+          <div class="exp-head">
+            <span class="role">Programmer Analyst — IT Operations</span>
+            <span class="period">Nov 2019 – Jun 2021</span>
+          </div>
+          <div class="org">Cognizant · Pune, India</div>
+          <ul>
+            <li>Handled production incident response and supported critical IT operations.</li>
+            <li>Wrote Python/Bash scripts to automate recurring tasks and reduce resolution time.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects" style="background: var(--bg-soft);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">// work</span>
+        <h2>What I build</h2>
+        <p>Types of platform and reliability work I focus on.</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="badge">PLATFORM · SELF-SERVICE</div>
+          <h3>Internal Tooling Platforms</h3>
+          <p>AI-assisted internal tool servers that expose self-service infrastructure operations over clean, auth-guarded APIs — packaged with Docker and Helm for Kubernetes.</p>
+          <div class="stack">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">Helm</span>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="badge">OBSERVABILITY · DASHBOARDS</div>
+          <h3>Operations Dashboards</h3>
+          <p>Real-time ops dashboards aggregating metrics from container logs and APIs, with automated alerting on service health degradation.</p>
+          <div class="stack">
+            <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Grafana</span>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="badge">RELIABILITY · MONITORING</div>
+          <h3>Health-Check Automation</h3>
+          <p>Automated sanity and health-check workflows — SSL, API health, storage, replication, and performance — with scheduled reports and alerting.</p>
+          <div class="stack">
+            <span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Prometheus</span><span class="tag">Cron</span>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="badge">EDUCATION · CONTENT</div>
+          <h3>DevOps Learning Guides</h3>
+          <p>A growing library of hands-on guides covering Docker, Kubernetes, Jenkins, Terraform, Ansible, Git, and Prometheus/Grafana — written to teach by doing.</p>
+          <div class="stack">
+            <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="card reveal">
+        <h2>Let's build something reliable</h2>
+        <p>Open to DevOps, Cloud, Platform, and SRE opportunities. Have a project or a role in mind? Let's talk.</p>
+        <div class="social-row">
+          <a class="btn btn-primary" href="mailto:shubhs248@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/shubhs248/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/shubhs248" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Shubham Sharma · Built with HTML, CSS &amp; ☕ · Hosted on GitHub Pages
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle (remembers choice)
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const applyTheme = (theme) => {
+      if (theme === 'light') { root.setAttribute('data-theme', 'light'); themeToggle.textContent = '☀️'; }
+      else { root.removeAttribute('data-theme'); themeToggle.textContent = '🌙'; }
+    };
+    applyTheme(localStorage.getItem('theme') || 'dark');
+    themeToggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', next);
+      applyTheme(next);
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Scroll progress bar + back-to-top visibility
+    const progressBar = document.getElementById('progressBar');
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      const scrolled = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      progressBar.style.width = (height > 0 ? (scrolled / height) * 100 : 0) + '%';
+      toTop.classList.toggle('show', scrolled > 400);
+    });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Active nav link highlighting on scroll
+    const sections = document.querySelectorAll('section[id], header');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(s => { if (s.id) navObserver.observe(s); });
+
+    // Count-up animation for stats
+    const animateCount = (el) => {
+      const target = el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      const num = parseInt(target, 10);
+      if (isNaN(num)) { el.textContent = target; return; }
+      let current = 0;
+      const step = Math.max(1, Math.ceil(num / 40));
+      const tick = () => {
+        current = Math.min(num, current + step);
+        el.textContent = current + suffix;
+        if (current < num) requestAnimationFrame(tick);
+      };
+      tick();
+    };
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { animateCount(entry.target); statObserver.unobserve(entry.target); }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat .num[data-target]').forEach(el => statObserver.observe(el));
+  </script>
+</body>
+</html>
