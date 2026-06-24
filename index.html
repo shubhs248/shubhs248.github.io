@@ -3,18 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shubham Sharma — DevOps & Platform Engineer</title>
-  <meta name="description" content="Shubham Sharma — DevOps & Platform Engineer with 7+ years in CI/CD, Kubernetes, observability, and automation." />
+  <title>Shubham Sharma — Senior DevOps & Platform Engineer</title>
+  <meta name="description" content="Shubham Sharma — Senior DevOps & Platform Engineer with 7+ years in CI/CD, Kubernetes, observability, and infrastructure automation. Built enablement platforms supporting 60+ managed services." />
   <meta name="author" content="Shubham Sharma" />
+  <meta name="keywords" content="DevOps Engineer, Platform Engineer, SRE, Kubernetes, CI/CD, Terraform, Observability, Prometheus, Grafana, AWS, Azure, Pune" />
+  <meta name="theme-color" content="#0b1120" />
+  <link rel="canonical" href="https://shubhs248.github.io/" />
 
   <!-- Open Graph / social preview -->
-  <meta property="og:title" content="Shubham Sharma — DevOps & Platform Engineer" />
-  <meta property="og:description" content="CI/CD · Kubernetes · Observability · Automation · Platform Engineering" />
+  <meta property="og:title" content="Shubham Sharma — Senior DevOps & Platform Engineer" />
+  <meta property="og:description" content="7+ years · CI/CD · Kubernetes · Observability · Platform Engineering · 60+ managed services" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://shubhs248.github.io" />
   <meta property="og:image" content="https://shubhs248.github.io/profile.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="https://shubhs248.github.io/profile.png" />
+
+  <!-- Structured data: helps search engines & recruiters render a rich result -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shubham Sharma",
+    "url": "https://shubhs248.github.io/",
+    "image": "https://shubhs248.github.io/profile.png",
+    "jobTitle": "Senior DevOps & Platform Engineer",
+    "worksFor": { "@type": "Organization", "name": "Amdocs" },
+    "description": "Senior DevOps & Platform Engineer with 7+ years in CI/CD, Kubernetes, observability, and infrastructure automation.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pune",
+      "addressCountry": "India"
+    },
+    "knowsAbout": [
+      "DevOps", "Site Reliability Engineering", "Platform Engineering",
+      "Kubernetes", "Docker", "Helm", "CI/CD", "Jenkins", "Azure DevOps",
+      "Terraform", "Ansible", "Prometheus", "Grafana", "AWS", "Azure", "Python"
+    ],
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "name": "AWS Certified Cloud Practitioner", "credentialCategory": "certification", "url": "https://www.credly.com/users/shubham-sharma.51a1fe87" },
+      { "@type": "EducationalOccupationalCredential", "name": "Microsoft Certified: Azure Fundamentals (AZ-900)", "credentialCategory": "certification", "url": "https://www.credly.com/users/shubham-sharma.51a1fe87" }
+    ],
+    "alumniOf": [
+      { "@type": "EducationalOrganization", "name": "Great Learning — PG Program in Cloud Computing" },
+      { "@type": "CollegeOrUniversity", "name": "Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV)" }
+    ],
+    "sameAs": [
+      "https://github.com/shubhs248",
+      "https://www.linkedin.com/in/shubhs248/"
+    ]
+  }
+  </script>
 
   <!-- Favicon: inline SVG monogram (crisp at any size) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2338bdf8'/%3E%3Cstop offset='1' stop-color='%23818cf8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Segoe UI,Arial,sans-serif' font-size='52' font-weight='700' fill='%2306101f' text-anchor='middle'%3ESS%3C/text%3E%3C/svg%3E" />
@@ -27,6 +66,7 @@
     :root {
       --bg: #0b1120;
       --bg-soft: #111a2e;
+      --bg-soft-trans: rgba(17, 26, 46, 0.55);
       --card: #16213e;
       --card-hover: #1c2a4d;
       --text: #e6edf7;
@@ -41,6 +81,7 @@
     :root[data-theme="light"] {
       --bg: #f4f7fb;
       --bg-soft: #e9eff7;
+      --bg-soft-trans: rgba(233, 239, 247, 0.6);
       --card: #ffffff;
       --card-hover: #f0f5fc;
       --text: #0f1c33;
@@ -57,15 +98,29 @@
       transition: background .3s ease, color .3s ease, border-color .3s ease;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; background: var(--bg); }
 
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
+      background: transparent;
       color: var(--text);
       line-height: 1.65;
       overflow-x: hidden;
     }
+
+    /* ---------- Background icon texture ---------- */
+    .bg-icons {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-image: url('bg-pattern.svg');
+      background-size: 300px 300px; background-repeat: repeat;
+      opacity: 0.12;
+      mask-image: radial-gradient(ellipse 120% 110% at 50% 35%, #000 75%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 120% 110% at 50% 35%, #000 75%, transparent 100%);
+    }
+    :root[data-theme="light"] .bg-icons { opacity: 0.14; }
+
+    /* Translucent alternate sections so the texture reads through */
+    .section-soft { background: var(--bg-soft-trans); }
 
     a { color: inherit; text-decoration: none; }
 
@@ -82,7 +137,7 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 16px 0;
     }
-    .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; }
+    .logo { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; color: var(--text); }
     .logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 28px; }
     .nav-links a { color: var(--muted); font-weight: 500; font-size: 0.95rem; transition: color .2s; }
@@ -104,7 +159,7 @@
     .hero-glow {
       position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
       width: 800px; height: 600px;
-      background: radial-gradient(circle, rgba(56,189,248,0.18), transparent 60%);
+      background: radial-gradient(circle, rgba(56,189,248,0.10), transparent 62%);
       filter: blur(40px); pointer-events: none; z-index: 0;
     }
     .hero-content { position: relative; z-index: 1; max-width: 760px; }
@@ -152,7 +207,8 @@
     .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; transition: transform .2s, border-color .2s; }
     .skill-card:hover { transform: translateY(-4px); border-color: var(--accent); }
     .skill-card h3 { font-size: 1.05rem; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-    .skill-card .icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 9px; background: var(--bg-soft); font-size: 1.1rem; }
+    .skill-card .icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; background: var(--bg-soft); border: 1px solid var(--border); color: var(--accent); flex: none; }
+    .skill-card .icon svg { width: 19px; height: 19px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--muted); background: var(--bg-soft); border: 1px solid var(--border); padding: 5px 11px; border-radius: 8px; }
 
@@ -166,6 +222,7 @@
     .project-card .badge { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--accent); margin-bottom: 12px; }
     .project-card h3 { font-size: 1.25rem; margin-bottom: 10px; }
     .project-card p { color: var(--muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 18px; }
+    .project-card p strong { color: var(--text); font-weight: 700; }
     .project-card .stack { display: flex; flex-wrap: wrap; gap: 7px; }
 
     /* ---------- Experience ---------- */
@@ -177,7 +234,24 @@
     .exp .org { color: var(--muted); font-size: 0.92rem; margin-bottom: 12px; }
     .exp ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .exp li { color: var(--muted); font-size: 0.94rem; padding-left: 20px; position: relative; }
+    .exp li strong { color: var(--text); font-weight: 700; }
     .exp li::before { content: "▹"; color: var(--accent); position: absolute; left: 0; }
+    .exp .tags { margin-top: 16px; }
+
+    /* ---------- Credentials ---------- */
+    .creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .cred-title { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .cred-list { display: flex; flex-direction: column; gap: 14px; }
+    .cred-card { display: flex; gap: 14px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; transition: transform .2s, border-color .2s; }
+    .cred-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .cred-card .c-icon { width: 36px; height: 36px; flex: none; display: grid; place-items: center; border-radius: 9px; background: var(--bg-soft); border: 1px solid var(--border); color: var(--accent); }
+    .cred-card .c-icon svg { width: 18px; height: 18px; }
+    .cred-card .cred-name { font-weight: 700; font-size: 0.98rem; }
+    .cred-card .cred-meta { color: var(--muted); font-size: 0.84rem; margin-top: 4px; }
+    .cred-card .cred-meta .valid { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
+    .cred-card .verify { display: inline-block; margin-top: 8px; color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; opacity: 0; transform: translateY(2px); transition: opacity .2s, transform .2s; }
+    a.cred-card:hover .verify { opacity: 1; transform: none; }
+    @media (max-width: 720px) { .creds-grid { grid-template-columns: 1fr; } }
 
     /* ---------- Contact ---------- */
     .contact { text-align: center; }
@@ -208,7 +282,7 @@
 
     /* ---------- Hero grid backdrop + animated blobs ---------- */
     header::before {
-      content: ""; position: absolute; inset: 0; z-index: 0; opacity: 0.4;
+      content: ""; position: absolute; inset: 0; z-index: 0; opacity: 0.22;
       background-image:
         linear-gradient(var(--border) 1px, transparent 1px),
         linear-gradient(90deg, var(--border) 1px, transparent 1px);
@@ -217,11 +291,11 @@
       -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 75%);
     }
     .blob {
-      position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.45; z-index: 0;
-      pointer-events: none; animation: float 14s ease-in-out infinite;
+      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.20; z-index: 0;
+      pointer-events: none; animation: float 18s ease-in-out infinite;
     }
-    .blob.b1 { width: 320px; height: 320px; background: #38bdf8; top: -60px; left: -40px; }
-    .blob.b2 { width: 280px; height: 280px; background: #818cf8; top: 40px; right: -60px; animation-delay: -5s; }
+    .blob.b1 { width: 300px; height: 300px; background: #38bdf8; top: -60px; left: -40px; }
+    .blob.b2 { width: 260px; height: 260px; background: #818cf8; top: 40px; right: -60px; animation-delay: -6s; }
     @keyframes float {
       0%, 100% { transform: translate(0, 0) scale(1); }
       50% { transform: translate(20px, 30px) scale(1.08); }
@@ -232,14 +306,9 @@
       width: 108px; height: 108px; border-radius: 50%; display: grid; place-items: center;
       overflow: hidden; margin-bottom: 26px; padding: 3px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 0 4px rgba(56,189,248,0.15), 0 10px 30px rgba(56,189,248,0.3);
-      animation: pulse 4s ease-in-out infinite;
+      box-shadow: 0 0 0 4px rgba(56,189,248,0.10), 0 12px 32px rgba(8,16,31,0.45);
     }
     .avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 4px rgba(56,189,248,0.15), 0 10px 30px rgba(56,189,248,0.3); }
-      50% { box-shadow: 0 0 0 8px rgba(56,189,248,0.08), 0 14px 40px rgba(129,140,248,0.4); }
-    }
 
     /* ---------- Available badge ---------- */
     .availability {
@@ -287,17 +356,19 @@
 </head>
 <body>
 
+  <div class="bg-icons" aria-hidden="true"></div>
   <div class="progress-bar" id="progressBar"></div>
 
   <!-- ===== Navbar ===== -->
   <nav>
     <div class="container nav-inner">
-      <div class="logo">shubhs<span>248</span></div>
+      <a class="logo" href="#" aria-label="Shubham Sharma — home">Shubham Sharma<span aria-hidden="true">.</span></a>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#projects">Work</a>
         <a href="#contact">Contact</a>
       </div>
       <div style="display:flex; align-items:center; gap:14px;">
@@ -314,11 +385,12 @@
     <div class="blob b2"></div>
     <div class="container hero-content">
       <div class="avatar"><img src="profile.png" alt="Shubham Sharma" /></div>
-      <span class="eyebrow">$ whoami</span>
-      <h1>Shubham Sharma<br /><span class="grad">DevOps &amp; Platform Engineer</span></h1>
+      <span class="eyebrow">Senior DevOps · Platform · SRE — Pune, India</span>
+      <h1>Shubham Sharma<br /><span class="grad">Senior DevOps &amp; Platform Engineer</span></h1>
       <p class="hero-sub">
-        7+ years building CI/CD pipelines, running containers on Kubernetes, automating
-        infrastructure, and keeping production observable and reliable.
+        7+ years designing CI/CD and observability platforms that keep enterprise services
+        shipping fast and staying reliable — supporting 60+ managed services across multi-region
+        Kubernetes, with incident detection time cut by 70%.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#experience">View my work →</a>
@@ -339,11 +411,11 @@
       <div class="about-grid reveal">
         <div class="about-text">
           <p>
-            I'm a <strong>DevOps &amp; Platform Engineer</strong> based in Pune, India, with
+            I'm a <strong>Senior DevOps &amp; Platform Engineer</strong> based in Pune, India, with
             <strong>7+ years of experience</strong> in CI/CD, infrastructure automation, and observability.
             I work across the full delivery lifecycle — from <strong>building and packaging</strong> apps
             with Docker, to <strong>shipping them</strong> through CI/CD, to <strong>running and monitoring</strong>
-            them on Kubernetes.
+            them on multi-region Kubernetes.
           </p>
           <p>
             I enjoy <strong>automation and platform tooling</strong>: writing Python and Bash to remove toil,
@@ -357,8 +429,8 @@
           </p>
           <div class="stats">
             <div class="stat"><div class="num" data-target="7" data-suffix="+">7+</div><div class="label">Years experience</div></div>
-            <div class="stat"><div class="num" data-target="4" data-suffix="×">4×</div><div class="label">Cloud certifications</div></div>
-            <div class="stat"><div class="num" data-target="24/7">24/7</div><div class="label">Reliability focus</div></div>
+            <div class="stat"><div class="num" data-target="60" data-suffix="+">60+</div><div class="label">Managed services supported</div></div>
+            <div class="stat"><div class="num" data-target="70" data-suffix="%">70%</div><div class="label">Faster incident detection</div></div>
           </div>
         </div>
       </div>
@@ -366,7 +438,7 @@
   </section>
 
   <!-- ===== Skills ===== -->
-  <section id="skills" style="background: var(--bg-soft);">
+  <section id="skills" class="section-soft">
     <div class="container">
       <div class="section-head reveal">
         <span class="kicker">// stack</span>
@@ -375,40 +447,40 @@
       </div>
       <div class="skills-grid">
         <div class="skill-card reveal">
-          <h3><span class="icon">🐳</span> Containers & Orchestration</h3>
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span> Containers &amp; Orchestration</h3>
           <div class="tags">
             <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Helm</span>
           </div>
         </div>
         <div class="skill-card reveal">
-          <h3><span class="icon">🔁</span> CI/CD & IaC</h3>
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg></span> CI/CD &amp; IaC</h3>
           <div class="tags">
             <span class="tag">Jenkins</span><span class="tag">Azure DevOps</span>
-            <span class="tag">Terraform</span><span class="tag">Ansible</span>
+            <span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">SonarQube</span>
           </div>
         </div>
         <div class="skill-card reveal">
-          <h3><span class="icon">💻</span> Languages & Scripting</h3>
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span> Languages &amp; Scripting</h3>
           <div class="tags">
             <span class="tag">Python</span><span class="tag">Bash</span>
-            <span class="tag">Groovy</span><span class="tag">FastAPI</span><span class="tag">SQL</span>
+            <span class="tag">Groovy</span><span class="tag">YAML</span><span class="tag">Linux</span>
           </div>
         </div>
         <div class="skill-card reveal">
-          <h3><span class="icon">📊</span> Observability</h3>
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span> Observability</h3>
           <div class="tags">
             <span class="tag">Prometheus</span><span class="tag">Grafana</span>
-            <span class="tag">Loki</span><span class="tag">Datadog</span><span class="tag">Splunk</span>
+            <span class="tag">Datadog</span><span class="tag">Splunk</span><span class="tag">Nginx</span>
           </div>
         </div>
         <div class="skill-card reveal">
-          <h3><span class="icon">☁️</span> Cloud</h3>
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></span> Cloud</h3>
           <div class="tags">
             <span class="tag">AWS</span><span class="tag">Azure</span>
           </div>
         </div>
         <div class="skill-card reveal">
-          <h3><span class="icon">📦</span> Artifact & SCM</h3>
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></span> Artifact &amp; SCM</h3>
           <div class="tags">
             <span class="tag">Nexus</span><span class="tag">Artifactory</span>
             <span class="tag">Git</span><span class="tag">Bitbucket</span><span class="tag">Perforce</span>
@@ -429,16 +501,19 @@
       <div class="timeline">
         <div class="exp reveal">
           <div class="exp-head">
-            <span class="role">DevOps Engineer — Platform Tooling & Observability</span>
+            <span class="role">Senior DevOps Engineer</span>
             <span class="period">Jun 2024 – Present</span>
           </div>
           <div class="org">Amdocs · Pune, India</div>
           <ul>
-            <li>Built AI-powered internal tool servers on Kubernetes with Helm, enabling self-service infrastructure operations.</li>
-            <li>Developed a real-time operations dashboard (FastAPI + PostgreSQL + Redis) with automated email alerting for service health.</li>
-            <li>Set up Prometheus + Grafana monitoring across multiple regions with alerting on replication, sync health, and capacity.</li>
-            <li>Built CI/CD pipelines for provisioning, certificate rotation, dependency scanning, and build lifecycle management.</li>
+            <li>Designed enterprise DevOps enablement &amp; observability platforms supporting <strong>60+ managed services</strong>, improving operational visibility and reducing incident detection time by <strong>70%</strong>.</li>
+            <li>Built <strong>17+ automated CI/CD pipelines</strong> in Python and Bash for infrastructure provisioning, compliance verification, and deployment workflows.</li>
+            <li>Implemented centralized <strong>multi-region monitoring and alerting</strong> with Prometheus and Grafana across Kubernetes platform services.</li>
+            <li>Led root-cause analysis, production incident troubleshooting, and disaster-recovery replication testing to sustain long-term infrastructure reliability.</li>
           </ul>
+          <div class="tags">
+            <span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">AWS</span><span class="tag">Python</span>
+          </div>
         </div>
         <div class="exp reveal">
           <div class="exp-head">
@@ -447,11 +522,13 @@
           </div>
           <div class="org">Amdocs · Pune, India</div>
           <ul>
-            <li>Built and maintained CI/CD pipelines (Jenkins + Azure DevOps) for 20+ applications across environments.</li>
-            <li>Containerized legacy apps with Docker/Kubernetes; used Terraform for repeatable multi-environment provisioning.</li>
-            <li>Implemented SonarQube quality gates and artifact management — reduced reported vulnerabilities by 40%.</li>
-            <li>Wrote Ansible playbooks for SSL rotation, tool upgrades, and fleet-wide config management.</li>
+            <li>Built and maintained Jenkins and Azure DevOps pipelines supporting <strong>20+ enterprise applications</strong> across development, staging, and production.</li>
+            <li>Containerized legacy applications with Docker and Kubernetes, scaling deployment infrastructure through Ansible playbook automation.</li>
+            <li>Administered SonarQube quality gates and Nexus repositories, introducing governance controls that <strong>reduced reported vulnerabilities by 40%</strong>.</li>
           </ul>
+          <div class="tags">
+            <span class="tag">Azure DevOps</span><span class="tag">Docker</span><span class="tag">Ansible</span><span class="tag">SonarQube</span><span class="tag">Nexus</span>
+          </div>
         </div>
         <div class="exp reveal">
           <div class="exp-head">
@@ -460,9 +537,12 @@
           </div>
           <div class="org">Cognizant · Pune, India</div>
           <ul>
-            <li>Built Jenkins CI/CD pipelines, reducing manual deployment effort by 60%.</li>
-            <li>Integrated monitoring and incident management tooling, improving SLA compliance by 20%.</li>
+            <li>Built Jenkins CI/CD workflows and optimized release management, <strong>reducing manual deployment effort by 60%</strong>.</li>
+            <li>Integrated Splunk monitoring and ServiceNow ticket routing to accelerate operational visibility and ensure strict SLA compliance.</li>
           </ul>
+          <div class="tags">
+            <span class="tag">Jenkins</span><span class="tag">Splunk</span><span class="tag">ServiceNow</span>
+          </div>
         </div>
         <div class="exp reveal">
           <div class="exp-head">
@@ -471,45 +551,101 @@
           </div>
           <div class="org">Cognizant · Pune, India</div>
           <ul>
-            <li>Handled production incident response and supported critical IT operations.</li>
-            <li>Wrote Python/Bash scripts to automate recurring tasks and reduce resolution time.</li>
+            <li>Managed critical production incidents with structured root-cause analysis and risk-mitigated change management using ITIL-aligned processes.</li>
+            <li>Developed custom Python and Bash automation to minimize operational toil, <strong>improving incident resolution times by 40%</strong>.</li>
           </ul>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">ITIL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Certifications & Education ===== -->
+  <section id="credentials" class="section-soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">// credentials</span>
+        <h2>Certifications &amp; education</h2>
+        <p>Validated cloud expertise and formal training.</p>
+      </div>
+      <div class="creds-grid">
+        <div class="cred-col reveal">
+          <div class="cred-title">Certifications</div>
+          <div class="cred-list">
+            <a class="cred-card" href="https://www.credly.com/users/shubham-sharma.51a1fe87" target="_blank" rel="noopener" aria-label="AWS Certified Cloud Practitioner — verify on Credly">
+              <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+              <div>
+                <div class="cred-name">AWS Certified Cloud Practitioner</div>
+                <div class="cred-meta">Amazon Web Services · <span class="valid">valid through May 2027</span></div>
+                <span class="verify">Verify on Credly ↗</span>
+              </div>
+            </a>
+            <a class="cred-card" href="https://www.credly.com/users/shubham-sharma.51a1fe87" target="_blank" rel="noopener" aria-label="Microsoft Certified: Azure Fundamentals — verify on Credly">
+              <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+              <div>
+                <div class="cred-name">Microsoft Certified: Azure Fundamentals</div>
+                <div class="cred-meta">Microsoft · AZ-900</div>
+                <span class="verify">Verify on Credly ↗</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="cred-col reveal">
+          <div class="cred-title">Education</div>
+          <div class="cred-list">
+            <div class="cred-card">
+              <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+              <div>
+                <div class="cred-name">Post Graduate Program in Cloud Computing</div>
+                <div class="cred-meta">Great Learning · <span class="valid">2025</span></div>
+              </div>
+            </div>
+            <div class="cred-card">
+              <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+              <div>
+                <div class="cred-name">B.E., Electronics &amp; Communication</div>
+                <div class="cred-meta">RGPV, Bhopal · <span class="valid">2014 – 2018</span></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== Projects ===== -->
-  <section id="projects" style="background: var(--bg-soft);">
+  <section id="projects">
     <div class="container">
       <div class="section-head reveal">
         <span class="kicker">// work</span>
-        <h2>What I build</h2>
-        <p>Types of platform and reliability work I focus on.</p>
+        <h2>Selected work</h2>
+        <p>Platform and reliability initiatives I've designed and delivered at enterprise scale.</p>
       </div>
       <div class="projects-grid">
         <div class="project-card reveal">
-          <div class="badge">PLATFORM · SELF-SERVICE</div>
-          <h3>Internal Tooling Platforms</h3>
-          <p>AI-assisted internal tool servers that expose self-service infrastructure operations over clean, auth-guarded APIs — packaged with Docker and Helm for Kubernetes.</p>
+          <div class="badge">PLATFORM · OBSERVABILITY</div>
+          <h3>DevOps Enablement &amp; Observability Platform</h3>
+          <p>A centralized enablement and monitoring platform supporting <strong>60+ managed services</strong> across multi-region Kubernetes. Prometheus/Grafana alerting on replication, sync health, and capacity cut incident detection time by <strong>70%</strong>.</p>
           <div class="stack">
-            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">Helm</span>
+            <span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Python</span>
           </div>
         </div>
         <div class="project-card reveal">
-          <div class="badge">OBSERVABILITY · DASHBOARDS</div>
-          <h3>Operations Dashboards</h3>
-          <p>Real-time ops dashboards aggregating metrics from container logs and APIs, with automated alerting on service health degradation.</p>
+          <div class="badge">CI/CD · AUTOMATION</div>
+          <h3>CI/CD Automation Suite</h3>
+          <p><strong>17+ automated pipelines</strong> handling infrastructure provisioning, compliance verification, and the full deployment lifecycle — built in Python, Bash, and Groovy across Jenkins and Azure DevOps for 20+ enterprise applications.</p>
           <div class="stack">
-            <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Grafana</span>
+            <span class="tag">Jenkins</span><span class="tag">Azure DevOps</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Groovy</span>
           </div>
         </div>
         <div class="project-card reveal">
-          <div class="badge">RELIABILITY · MONITORING</div>
-          <h3>Health-Check Automation</h3>
-          <p>Automated sanity and health-check workflows — SSL, API health, storage, replication, and performance — with scheduled reports and alerting.</p>
+          <div class="badge">GOVERNANCE · SECURITY</div>
+          <h3>Quality &amp; Security Governance</h3>
+          <p>SonarQube quality gates and Nexus/Artifactory artifact governance wired into delivery pipelines, with policy controls that <strong>reduced reported vulnerabilities by 40%</strong> across the application portfolio.</p>
           <div class="stack">
-            <span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Prometheus</span><span class="tag">Cron</span>
+            <span class="tag">SonarQube</span><span class="tag">Nexus</span><span class="tag">Artifactory</span><span class="tag">Bitbucket</span>
           </div>
         </div>
         <div class="project-card reveal">
@@ -541,7 +677,7 @@
 
   <footer>
     <div class="container">
-      © <span id="year"></span> Shubham Sharma · Built with HTML, CSS &amp; ☕ · Hosted on GitHub Pages
+      © <span id="year"></span> Shubham Sharma — DevOps &amp; Platform Engineer · Pune, India
     </div>
   </footer>
 
