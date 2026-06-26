@@ -258,9 +258,10 @@
     .role-block { position: relative; padding-left: 20px; }
     .role-block:not(:last-child) { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px dashed var(--border); }
     .role-block::before { content: ""; position: absolute; left: 0; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--bg-soft-trans); }
-    .role-sub { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .role-sub { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
     .role-sub-title { font-weight: 700; font-size: 1.02rem; color: var(--text); }
     .role-sub-period { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.8rem; }
+    .role-sub-period::before { content: "·"; margin-right: 8px; color: var(--muted); }
 
     /* ---------- Credentials ---------- */
     .creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -671,7 +672,7 @@
             <span class="role company">Amdocs</span>
             <span class="period">Jan 2022 – Present</span>
           </div>
-          <div class="org">Pune, India · Promoted through 2 roles</div>
+          <div class="org">Pune, India</div>
 
           <div class="role-block">
             <div class="role-sub">
@@ -710,7 +711,7 @@
             <span class="role company">Cognizant</span>
             <span class="period">Nov 2019 – Jan 2022</span>
           </div>
-          <div class="org">Pune, India · Promoted through 2 roles</div>
+          <div class="org">Pune, India</div>
 
           <div class="role-block">
             <div class="role-sub">
@@ -819,7 +820,7 @@
         </div>
         <div class="project-card reveal">
           <div class="badge">AI · OPEN SOURCE</div>
-          <h3>DevOps Study Coach</h3>
+          <h3>LabSensei</h3>
           <p>A <strong>100% local, offline AI tutor</strong> for DevOps that turns your own practice labs into an interactive coach — adaptive study, mock interviews, and <strong>SM-2 spaced repetition</strong>. Built with a local RAG pipeline (Ollama + Chroma) so nothing leaves your machine — no API keys, no cloud bills.</p>
           <div class="stack">
             <span class="tag">Python</span><span class="tag">Ollama</span><span class="tag">RAG</span><span class="tag">Chroma</span><span class="tag">Streamlit</span>
