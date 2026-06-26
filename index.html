@@ -68,19 +68,21 @@
 
   <style>
     :root {
-      --bg: #0b1120;
-      --bg-soft: #111a2e;
-      --bg-soft-trans: rgba(17, 26, 46, 0.55);
-      --card: #16213e;
-      --card-hover: #1c2a4d;
-      --text: #e6edf7;
-      --muted: #9aa8c2;
+      --bg: #242427;
+      --bg-soft: #2b2b2f;
+      --bg-soft-trans: rgba(43, 43, 47, 0.55);
+      --card: #2f2f33;
+      --card-hover: #38383d;
+      --text: #ededee;
+      --muted: #a4a4ac;
       --accent: #38bdf8;
       --accent-2: #818cf8;
-      --border: #243150;
-      --nav-bg: rgba(11, 17, 32, 0.78);
+      --border: #43434a;
+      --nav-bg: rgba(36, 36, 39, 0.80);
+      --glow: rgba(56, 189, 248, 0.10);
+      --ring: rgba(56, 189, 248, 0.16);
       --radius: 16px;
-      --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.40);
     }
 
     :root[data-theme="light"] {
@@ -95,6 +97,8 @@
       --accent-2: #4f46e5;
       --border: #d6e0ee;
       --nav-bg: rgba(244, 247, 251, 0.82);
+      --glow: rgba(56, 189, 248, 0.12);
+      --ring: rgba(56, 189, 248, 0.15);
       --shadow: 0 10px 40px rgba(20, 40, 80, 0.12);
     }
 
@@ -118,12 +122,12 @@
     .bg-icons {
       position: fixed; inset: 0; z-index: -1; pointer-events: none;
       background-image: url('bg-pattern.svg');
-      background-size: 300px 300px; background-repeat: repeat;
-      opacity: 0.12;
-      mask-image: radial-gradient(ellipse 120% 110% at 50% 35%, #000 75%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 120% 110% at 50% 35%, #000 75%, transparent 100%);
+      background-size: 320px 320px; background-repeat: repeat;
+      opacity: 0.06;
+      mask-image: radial-gradient(ellipse 120% 110% at 50% 35%, #000 70%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 120% 110% at 50% 35%, #000 70%, transparent 100%);
     }
-    :root[data-theme="light"] .bg-icons { opacity: 0.14; }
+    :root[data-theme="light"] .bg-icons { opacity: 0.08; }
 
     /* Translucent alternate sections so the texture reads through */
     .section-soft { background: var(--bg-soft-trans); }
@@ -165,7 +169,7 @@
     .hero-glow {
       position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
       width: 800px; height: 600px;
-      background: radial-gradient(circle, rgba(56,189,248,0.10), transparent 62%);
+      background: radial-gradient(circle, var(--glow), transparent 62%);
       filter: blur(40px); pointer-events: none; z-index: 0;
     }
     .hero-content { position: relative; z-index: 1; max-width: 760px; }
@@ -188,7 +192,7 @@
       transition: transform .2s, box-shadow .2s, background .2s; cursor: pointer;
     }
     .btn-primary { background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: #06101f; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(56,189,248,0.35); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--ring); }
     .btn-ghost { border: 1px solid var(--border); color: var(--text); background: var(--bg-soft); }
     .btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
 
@@ -232,14 +236,14 @@
     .project-card .stack { display: flex; flex-wrap: wrap; gap: 7px; }
 
     /* ---------- Experience ---------- */
-    .timeline { display: flex; flex-direction: column; gap: 20px; position: relative; padding-left: 42px; }
-    .timeline::before { content: ""; position: absolute; left: 10px; top: 14px; bottom: 14px; width: 2px; background: linear-gradient(180deg, var(--accent), var(--accent-2)); opacity: .45; }
-    .exp { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; }
+    .timeline { display: flex; flex-direction: column; gap: 20px; position: relative; padding-left: 40px; }
+    .timeline::before { content: ""; position: absolute; left: 8px; top: 16px; bottom: 16px; width: 2px; background: linear-gradient(180deg, var(--accent), var(--accent-2)); opacity: .5; z-index: 0; }
+    .exp { position: relative; z-index: 1; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; }
     .exp::before {
-      content: ""; position: absolute; left: -39px; top: 27px;
-      width: 16px; height: 16px; border-radius: 50%;
-      background: var(--bg); border: 3px solid var(--accent);
-      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.14);
+      content: ""; position: absolute; left: -38px; top: 29px; z-index: 2;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: none;
+      box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--ring);
     }
     .exp .exp-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
     .exp .role { font-weight: 700; font-size: 1.1rem; }
@@ -307,8 +311,8 @@
       position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.20; z-index: 0;
       pointer-events: none; animation: float 18s ease-in-out infinite;
     }
-    .blob.b1 { width: 300px; height: 300px; background: #38bdf8; top: -60px; left: -40px; }
-    .blob.b2 { width: 260px; height: 260px; background: #818cf8; top: 40px; right: -60px; animation-delay: -6s; }
+    .blob.b1 { width: 300px; height: 300px; background: var(--accent); top: -60px; left: -40px; }
+    .blob.b2 { width: 260px; height: 260px; background: var(--accent-2); top: 40px; right: -60px; animation-delay: -6s; }
     @keyframes float {
       0%, 100% { transform: translate(0, 0) scale(1); }
       50% { transform: translate(20px, 30px) scale(1.08); }
@@ -319,7 +323,7 @@
       width: 108px; height: 108px; border-radius: 50%; display: grid; place-items: center;
       overflow: hidden; margin-bottom: 26px; padding: 3px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 0 4px rgba(56,189,248,0.10), 0 12px 32px rgba(8,16,31,0.45);
+      box-shadow: 0 0 0 4px var(--ring), 0 12px 32px rgba(0,0,0,0.45);
     }
     .avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
 
@@ -423,8 +427,21 @@
     .case-study h3 { font-size: 1.3rem; margin: 6px 0 10px; }
     .case-study .cs-lead { color: var(--muted); font-size: 0.96rem; max-width: 780px; }
     .case-study .cs-lead strong { color: var(--text); }
-    .architecture { width: 100%; overflow-x: auto; margin: 22px 0 6px; }
-    .architecture svg { width: 100%; min-width: 700px; height: auto; display: block; font-family: 'Inter', sans-serif; }
+    .arch { display: flex; align-items: stretch; gap: 10px; margin: 22px 0 4px; }
+    .arch-node {
+      flex: 1 1 0; min-width: 0; background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 12px; text-align: center;
+      display: flex; flex-direction: column; gap: 3px; justify-content: center;
+    }
+    .arch-node .an-t { font-weight: 700; font-size: 0.92rem; color: var(--text); }
+    .arch-node .an-s { font-size: 0.76rem; color: var(--muted); }
+    .arch-arrow { flex: 0 0 auto; display: grid; place-items: center; color: var(--accent); font-size: 1.1rem; }
+    .arch-loop { text-align: center; margin-top: 12px; color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
+    @media (max-width: 720px) {
+      .arch { flex-direction: column; }
+      .arch-node { width: 100%; }
+      .arch-arrow { transform: rotate(90deg); padding: 2px 0; }
+    }
     .cs-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
     .cs-point h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 6px; }
     .cs-point p { color: var(--muted); font-size: 0.9rem; }
@@ -476,9 +493,13 @@
         background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px;
       }
       .stats { grid-template-columns: 1fr; }
-      .timeline { padding-left: 30px; }
-      .timeline::before { left: 6px; }
-      .exp::before { left: -27px; }
+      .timeline { padding-left: 28px; }
+      .timeline::before { left: 8px; }
+      .exp::before { left: -26px; }
+      section { padding: 60px 0; }
+      header { padding: 84px 0 64px; }
+      .exp, .case-study { padding: 22px; }
+      .contact .card { padding: 40px 20px; }
     }
   </style>
 </head>
@@ -810,44 +831,18 @@
           giving teams unified visibility and cutting <strong>incident detection time by 70%</strong>.
         </p>
 
-        <div class="architecture">
-          <svg viewBox="0 0 1000 250" role="img" aria-label="Architecture flow: developers commit to Git, CI/CD via Jenkins deploys to multi-region Kubernetes, monitored by Prometheus and Grafana, with alerting feeding back to the team as a continuous reliability loop.">
-            <defs>
-              <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-                <path d="M0,0 L7,3 L0,6 Z" fill="var(--accent)" />
-              </marker>
-            </defs>
-            <g fill="var(--bg-soft)" stroke="var(--border)" stroke-width="1.5">
-              <rect x="10"  y="40" width="170" height="80" rx="12" />
-              <rect x="215" y="40" width="170" height="80" rx="12" />
-              <rect x="420" y="40" width="170" height="80" rx="12" />
-              <rect x="625" y="40" width="170" height="80" rx="12" />
-              <rect x="830" y="40" width="170" height="80" rx="12" />
-            </g>
-            <g text-anchor="middle" fill="var(--text)" font-weight="700" font-size="15">
-              <text x="95"  y="75">Developers</text>
-              <text x="300" y="75">CI/CD</text>
-              <text x="505" y="75">Kubernetes</text>
-              <text x="710" y="75">Prometheus</text>
-              <text x="915" y="75">Alerting</text>
-            </g>
-            <g text-anchor="middle" fill="var(--muted)" font-size="13">
-              <text x="95"  y="97">Git / Bitbucket</text>
-              <text x="300" y="97">Jenkins pipelines</text>
-              <text x="505" y="97">multi-region</text>
-              <text x="710" y="97">+ Grafana</text>
-              <text x="915" y="97">&amp; on-call</text>
-            </g>
-            <g stroke="var(--accent)" stroke-width="2" fill="none">
-              <line x1="182" y1="80" x2="212" y2="80" marker-end="url(#arrow)" />
-              <line x1="387" y1="80" x2="417" y2="80" marker-end="url(#arrow)" />
-              <line x1="592" y1="80" x2="622" y2="80" marker-end="url(#arrow)" />
-              <line x1="797" y1="80" x2="827" y2="80" marker-end="url(#arrow)" />
-              <path d="M915,122 V200 H95 V124" stroke-dasharray="5 6" opacity="0.7" marker-end="url(#arrow)" />
-            </g>
-            <text x="505" y="223" text-anchor="middle" fill="var(--muted)" font-size="13" font-family="'JetBrains Mono', monospace">continuous feedback · reliability loop</text>
-          </svg>
+        <div class="arch" role="img" aria-label="Architecture flow: Developers (Git/Bitbucket) to CI/CD (Jenkins) to multi-region Kubernetes to Prometheus and Grafana to Alerting and on-call, forming a continuous feedback and reliability loop.">
+          <div class="arch-node"><span class="an-t">Developers</span><span class="an-s">Git / Bitbucket</span></div>
+          <div class="arch-arrow" aria-hidden="true">&rarr;</div>
+          <div class="arch-node"><span class="an-t">CI/CD</span><span class="an-s">Jenkins pipelines</span></div>
+          <div class="arch-arrow" aria-hidden="true">&rarr;</div>
+          <div class="arch-node"><span class="an-t">Kubernetes</span><span class="an-s">multi-region</span></div>
+          <div class="arch-arrow" aria-hidden="true">&rarr;</div>
+          <div class="arch-node"><span class="an-t">Prometheus</span><span class="an-s">+ Grafana</span></div>
+          <div class="arch-arrow" aria-hidden="true">&rarr;</div>
+          <div class="arch-node"><span class="an-t">Alerting</span><span class="an-s">&amp; on-call</span></div>
         </div>
+        <div class="arch-loop" aria-hidden="true">&#8635; continuous feedback &middot; reliability loop</div>
 
         <div class="cs-points">
           <div class="cs-point">
