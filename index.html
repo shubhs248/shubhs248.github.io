@@ -74,6 +74,7 @@
       --accent: #38bdf8;
       --accent-2: #818cf8;
       --border: #243150;
+      --nav-bg: rgba(11, 17, 32, 0.78);
       --radius: 16px;
       --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
     }
@@ -89,6 +90,7 @@
       --accent: #0284c7;
       --accent-2: #4f46e5;
       --border: #d6e0ee;
+      --nav-bg: rgba(244, 247, 251, 0.82);
       --shadow: 0 10px 40px rgba(20, 40, 80, 0.12);
     }
 
@@ -130,7 +132,7 @@
     nav {
       position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(12px);
-      background: rgba(11, 17, 32, 0.78);
+      background: var(--nav-bg);
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
