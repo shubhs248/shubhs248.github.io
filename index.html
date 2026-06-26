@@ -254,6 +254,13 @@
     .exp li strong { color: var(--text); font-weight: 700; }
     .exp li::before { content: "▹"; color: var(--accent); position: absolute; left: 0; }
     .exp .tags { margin-top: 16px; }
+    .exp .company { font-weight: 800; font-size: 1.25rem; }
+    .role-block { position: relative; padding-left: 20px; }
+    .role-block:not(:last-child) { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px dashed var(--border); }
+    .role-block::before { content: ""; position: absolute; left: 0; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--bg-soft-trans); }
+    .role-sub { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .role-sub-title { font-weight: 700; font-size: 1.02rem; color: var(--text); }
+    .role-sub-period { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.8rem; }
 
     /* ---------- Credentials ---------- */
     .creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -661,61 +668,76 @@
       <div class="timeline">
         <div class="exp reveal">
           <div class="exp-head">
-            <span class="role">Senior DevOps Engineer</span>
-            <span class="period">Jun 2024 – Present</span>
+            <span class="role company">Amdocs</span>
+            <span class="period">Jan 2022 – Present</span>
           </div>
-          <div class="org">Amdocs · Pune, India</div>
-          <ul>
-            <li>Designed enterprise DevOps enablement &amp; observability platforms supporting <strong>60+ managed services</strong>, improving operational visibility and reducing incident detection time by <strong>70%</strong>.</li>
-            <li>Built <strong>17+ automated CI/CD pipelines</strong> in Python and Bash for infrastructure provisioning, compliance verification, and deployment workflows.</li>
-            <li>Implemented centralized <strong>multi-region monitoring and alerting</strong> with Prometheus and Grafana across Kubernetes platform services.</li>
-            <li>Led root-cause analysis, production incident troubleshooting, and disaster-recovery replication testing to sustain long-term infrastructure reliability.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">AWS</span><span class="tag">Python</span>
+          <div class="org">Pune, India · Promoted through 2 roles</div>
+
+          <div class="role-block">
+            <div class="role-sub">
+              <span class="role-sub-title">Senior DevOps Engineer</span>
+              <span class="role-sub-period">Jun 2024 – Present</span>
+            </div>
+            <ul>
+              <li>Designed enterprise DevOps enablement &amp; observability platforms supporting <strong>60+ managed services</strong>, improving operational visibility and reducing incident detection time by <strong>70%</strong>.</li>
+              <li>Built <strong>17+ automated CI/CD pipelines</strong> in Python and Bash for infrastructure provisioning, compliance verification, and deployment workflows.</li>
+              <li>Implemented centralized <strong>multi-region monitoring and alerting</strong> with Prometheus and Grafana across Kubernetes platform services.</li>
+              <li>Led root-cause analysis, production incident troubleshooting, and disaster-recovery replication testing to sustain long-term infrastructure reliability.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">AWS</span><span class="tag">Python</span>
+            </div>
           </div>
-        </div>
-        <div class="exp reveal">
-          <div class="exp-head">
-            <span class="role">DevOps Engineer</span>
-            <span class="period">Jan 2022 – Jun 2024</span>
-          </div>
-          <div class="org">Amdocs · Pune, India</div>
-          <ul>
-            <li>Built and maintained Jenkins and Azure DevOps pipelines supporting <strong>20+ enterprise applications</strong> across development, staging, and production.</li>
-            <li>Containerized legacy applications with Docker and Kubernetes, scaling deployment infrastructure through Ansible playbook automation.</li>
-            <li>Administered SonarQube quality gates and Nexus repositories, introducing governance controls that <strong>reduced reported vulnerabilities by 40%</strong>.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Azure DevOps</span><span class="tag">Docker</span><span class="tag">Ansible</span><span class="tag">SonarQube</span><span class="tag">Nexus</span>
-          </div>
-        </div>
-        <div class="exp reveal">
-          <div class="exp-head">
-            <span class="role">Associate DevOps Engineer</span>
-            <span class="period">Jun 2021 – Jan 2022</span>
-          </div>
-          <div class="org">Cognizant · Pune, India</div>
-          <ul>
-            <li>Built Jenkins CI/CD workflows and optimized release management, <strong>reducing manual deployment effort by 60%</strong>.</li>
-            <li>Integrated Splunk monitoring and ServiceNow ticket routing to accelerate operational visibility and ensure strict SLA compliance.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Jenkins</span><span class="tag">Splunk</span><span class="tag">ServiceNow</span>
+
+          <div class="role-block">
+            <div class="role-sub">
+              <span class="role-sub-title">DevOps Engineer</span>
+              <span class="role-sub-period">Jan 2022 – Jun 2024</span>
+            </div>
+            <ul>
+              <li>Built and maintained Jenkins and Azure DevOps pipelines supporting <strong>20+ enterprise applications</strong> across development, staging, and production.</li>
+              <li>Containerized legacy applications with Docker and Kubernetes, scaling deployment infrastructure through Ansible playbook automation.</li>
+              <li>Administered SonarQube quality gates and Nexus repositories, introducing governance controls that <strong>reduced reported vulnerabilities by 40%</strong>.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Azure DevOps</span><span class="tag">Docker</span><span class="tag">Ansible</span><span class="tag">SonarQube</span><span class="tag">Nexus</span>
+            </div>
           </div>
         </div>
+
         <div class="exp reveal">
           <div class="exp-head">
-            <span class="role">Programmer Analyst — IT Operations</span>
-            <span class="period">Nov 2019 – Jun 2021</span>
+            <span class="role company">Cognizant</span>
+            <span class="period">Nov 2019 – Jan 2022</span>
           </div>
-          <div class="org">Cognizant · Pune, India</div>
-          <ul>
-            <li>Managed critical production incidents with structured root-cause analysis and risk-mitigated change management using ITIL-aligned processes.</li>
-            <li>Developed custom Python and Bash automation to minimize operational toil, <strong>improving incident resolution times by 40%</strong>.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">ITIL</span>
+          <div class="org">Pune, India · Promoted through 2 roles</div>
+
+          <div class="role-block">
+            <div class="role-sub">
+              <span class="role-sub-title">Associate DevOps Engineer</span>
+              <span class="role-sub-period">Jun 2021 – Jan 2022</span>
+            </div>
+            <ul>
+              <li>Built Jenkins CI/CD workflows and optimized release management, <strong>reducing manual deployment effort by 60%</strong>.</li>
+              <li>Integrated Splunk monitoring and ServiceNow ticket routing to accelerate operational visibility and ensure strict SLA compliance.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Jenkins</span><span class="tag">Splunk</span><span class="tag">ServiceNow</span>
+            </div>
+          </div>
+
+          <div class="role-block">
+            <div class="role-sub">
+              <span class="role-sub-title">Programmer Analyst — IT Operations</span>
+              <span class="role-sub-period">Nov 2019 – Jun 2021</span>
+            </div>
+            <ul>
+              <li>Managed critical production incidents with structured root-cause analysis and risk-mitigated change management using ITIL-aligned processes.</li>
+              <li>Developed custom Python and Bash automation to minimize operational toil, <strong>improving incident resolution times by 40%</strong>.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">ITIL</span>
+            </div>
           </div>
         </div>
       </div>
