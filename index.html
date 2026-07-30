@@ -172,7 +172,12 @@
       background: radial-gradient(circle, var(--glow), transparent 62%);
       filter: blur(40px); pointer-events: none; z-index: 0;
     }
-    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-grid {
+      display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, .75fr);
+      gap: 54px; align-items: center;
+    }
+    .hero-copy { min-width: 0; }
     .eyebrow {
       display: inline-block; font-family: 'JetBrains Mono', monospace;
       color: var(--accent); font-size: 0.85rem; letter-spacing: 0.05em;
@@ -195,6 +200,28 @@
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--ring); }
     .btn-ghost { border: 1px solid var(--border); color: var(--text); background: var(--bg-soft); }
     .btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .impact-card {
+      position: relative; overflow: hidden;
+      background: linear-gradient(145deg, var(--card), var(--bg-soft));
+      border: 1px solid var(--border); border-radius: 22px; padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .impact-card::before {
+      content: ""; position: absolute; inset: 0 0 auto; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+    .impact-label {
+      color: var(--accent); font-family: 'JetBrains Mono', monospace;
+      font-size: .74rem; letter-spacing: .08em; text-transform: uppercase;
+    }
+    .impact-card h2 { margin: 7px 0 20px; font-size: 1.3rem; line-height: 1.3; }
+    .impact-list { display: grid; gap: 16px; }
+    .impact-item {
+      display: grid; grid-template-columns: 68px 1fr; gap: 14px;
+      align-items: center; padding-top: 16px; border-top: 1px solid var(--border);
+    }
+    .impact-item strong { color: var(--accent); font-size: 1.5rem; line-height: 1; }
+    .impact-item span { color: var(--muted); font-size: .86rem; line-height: 1.4; }
 
     /* ---------- Sections ---------- */
     section { padding: 80px 0; }
@@ -202,6 +229,29 @@
     .section-head .kicker { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.85rem; letter-spacing: 0.08em; }
     .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; }
     .section-head p { color: var(--muted); margin-top: 10px; max-width: 620px; }
+
+    /* ---------- Recruiter value summary ---------- */
+    .recruiter-value { padding: 64px 0; }
+    .value-intro {
+      display: grid; grid-template-columns: .75fr 1.25fr; gap: 52px;
+      align-items: end; margin-bottom: 30px;
+    }
+    .value-intro h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.15;
+      letter-spacing: -.02em;
+    }
+    .value-intro p { color: var(--muted); max-width: 620px; }
+    .value-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .value-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px;
+    }
+    .value-card .value-number {
+      display: block; margin-bottom: 14px; color: var(--accent);
+      font-family: 'JetBrains Mono', monospace; font-size: .76rem;
+    }
+    .value-card h3 { margin-bottom: 8px; font-size: 1rem; }
+    .value-card p { color: var(--muted); font-size: .86rem; line-height: 1.55; }
 
     /* ---------- About ---------- */
     .about-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
@@ -492,9 +542,16 @@
       .blob, .avatar, .availability .dot { animation: none; }
       html { scroll-behavior: auto; }
       .marquee-track, h1 .grad { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      *, *::before, *::after { scroll-behavior: auto !important; }
     }
 
     /* ---------- Responsive ---------- */
+    @media (max-width: 920px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .impact-card { max-width: 620px; }
+      .value-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 720px) {
       .nav-links { display: none; }
       .nav-toggle { display: block; }
@@ -511,6 +568,11 @@
       header { padding: 84px 0 64px; }
       .exp, .case-study { padding: 22px; }
       .contact .card { padding: 40px 20px; }
+      .value-intro { grid-template-columns: 1fr; gap: 14px; }
+      .value-grid { grid-template-columns: 1fr; }
+      .impact-card { padding: 22px; }
+      .hero-sub { font-size: 1.06rem; }
+      .cta-row .btn { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -521,48 +583,100 @@
   <div class="progress-bar" id="progressBar"></div>
 
   <!-- ===== Navbar ===== -->
-  <nav>
+  <nav aria-label="Primary navigation">
     <div class="container nav-inner">
-      <a class="logo" href="#" aria-label="Shubham Sharma — home">Shubham Sharma<span aria-hidden="true">.</span></a>
+      <a class="logo" href="#home" aria-label="Shubham Sharma — home">Shubham Sharma<span aria-hidden="true">.</span></a>
       <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#credentials">Credentials</a>
         <a href="#projects">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#credentials">Credentials</a>
         <a href="#writing">Writing</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
       <div style="display:flex; align-items:center; gap:14px;">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">🌙</button>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Switch to light theme" aria-pressed="false" title="Toggle theme">🌙</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">☰</button>
       </div>
     </div>
   </nav>
 
+  <main id="main">
   <!-- ===== Hero ===== -->
-  <header id="main">
+  <header id="home">
     <div class="hero-glow"></div>
     <div class="blob b1"></div>
     <div class="blob b2"></div>
-    <div class="container hero-content">
-      <div class="avatar"><img src="profile.png" alt="Shubham Sharma" /></div>
-      <span class="eyebrow">Senior DevOps · Platform · SRE — Pune, India</span>
-      <h1>Shubham Sharma<br /><span class="grad">Senior DevOps &amp; Platform Engineer</span></h1>
-      <p class="hero-sub">
-        7+ years designing CI/CD and observability platforms that keep enterprise services
-        shipping fast and staying reliable — supporting 60+ managed services across multi-region
-        Kubernetes, with incident detection time cut by 70%.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#experience">View my work →</a>
-        <a class="btn btn-ghost" href="https://github.com/shubhs248" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    <div class="container hero-content hero-grid">
+      <div class="hero-copy">
+        <div class="avatar"><img src="profile.png" alt="Shubham Sharma" /></div>
+        <span class="eyebrow">Senior Platform / DevOps Engineer — Pune, India</span>
+        <h1>Shubham Sharma<br /><span class="grad">Platform engineering at enterprise scale.</span></h1>
+        <p class="hero-sub">
+          I build Kubernetes, CI/CD, and observability platforms that help engineering teams
+          ship faster and operate reliably — supporting 60+ managed services across multiple
+          regions and reducing incident detection time by 70%.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Start a conversation →</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/shubhs248/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="#projects">Explore selected work</a>
+        </div>
+        <p class="focus-line">Currently deep in <span class="rotator" id="rotator">Kubernetes</span></p>
+        <div class="availability"><span class="dot" aria-hidden="true"></span> Open to Senior Platform / DevOps opportunities</div>
       </div>
-      <p class="focus-line">Currently deep in <span class="rotator" id="rotator">Kubernetes</span></p>
-      <div class="availability"><span class="dot"></span> Open to DevOps / Cloud / SRE opportunities</div>
+      <aside class="impact-card" aria-label="Career impact summary">
+        <span class="impact-label">Platform impact</span>
+        <h2>Reliable delivery, measurable outcomes.</h2>
+        <div class="impact-list">
+          <div class="impact-item"><strong>7+</strong><span>years across DevOps, platform engineering, and operations</span></div>
+          <div class="impact-item"><strong>60+</strong><span>managed services supported across multi-region platforms</span></div>
+          <div class="impact-item"><strong>70%</strong><span>faster incident detection through centralized observability</span></div>
+          <div class="impact-item"><strong>17+</strong><span>automated pipelines for provisioning, compliance, and delivery</span></div>
+        </div>
+      </aside>
     </div>
   </header>
+
+  <!-- ===== Recruiter value summary ===== -->
+  <section id="recruiter-value" class="recruiter-value section-soft" aria-labelledby="value-heading">
+    <div class="container">
+      <div class="value-intro reveal">
+        <div>
+          <span class="eyebrow">What I bring</span>
+          <h2 id="value-heading">Platform thinking backed by production ownership.</h2>
+        </div>
+        <p>
+          I work across the complete delivery lifecycle: developer enablement, infrastructure
+          automation, Kubernetes operations, observability, incident response, and continuous
+          reliability improvement.
+        </p>
+      </div>
+      <div class="value-grid">
+        <article class="value-card reveal">
+          <span class="value-number">01</span>
+          <h3>Enterprise platform scale</h3>
+          <p>Designing self-service tooling and shared platform capabilities for 60+ managed services.</p>
+        </article>
+        <article class="value-card reveal">
+          <span class="value-number">02</span>
+          <h3>Delivery automation</h3>
+          <p>Removing manual work with CI/CD, Python, Bash, Terraform, and Ansible automation.</p>
+        </article>
+        <article class="value-card reveal">
+          <span class="value-number">03</span>
+          <h3>Reliability by design</h3>
+          <p>Building actionable Prometheus and Grafana observability for multi-region Kubernetes.</p>
+        </article>
+        <article class="value-card reveal">
+          <span class="value-number">04</span>
+          <h3>Production ownership</h3>
+          <p>Leading incident investigation, root-cause analysis, resilience testing, and recovery.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== Tech marquee ===== -->
   <div class="marquee" aria-hidden="true">
@@ -971,6 +1085,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <footer>
     <div class="container footer-grid">
@@ -998,8 +1113,23 @@
     // Mobile nav toggle
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    const setMenu = (open) => {
+      links.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      toggle.textContent = open ? '✕' : '☰';
+    };
+    toggle.addEventListener('click', () => setMenu(!links.classList.contains('open')));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && links.classList.contains('open')) {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 720) setMenu(false);
+    });
 
     // Current year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -1007,38 +1137,60 @@
     // Theme toggle (remembers choice)
     const themeToggle = document.getElementById('themeToggle');
     const root = document.documentElement;
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)');
     const applyTheme = (theme) => {
-      if (theme === 'light') { root.setAttribute('data-theme', 'light'); themeToggle.textContent = '☀️'; }
-      else { root.removeAttribute('data-theme'); themeToggle.textContent = '🌙'; }
+      const isLight = theme === 'light';
+      root.toggleAttribute('data-theme', isLight);
+      if (isLight) root.setAttribute('data-theme', 'light');
+      themeToggle.textContent = isLight ? '☀️' : '🌙';
+      themeToggle.setAttribute('aria-pressed', String(isLight));
+      themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+      if (themeColor) themeColor.setAttribute('content', isLight ? '#f4f7fb' : '#242427');
     };
-    applyTheme(localStorage.getItem('theme') || 'dark');
+    applyTheme(localStorage.getItem('theme') || (prefersLight.matches ? 'light' : 'dark'));
     themeToggle.addEventListener('click', () => {
       const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
       localStorage.setItem('theme', next);
       applyTheme(next);
     });
+    prefersLight.addEventListener('change', (event) => {
+      if (!localStorage.getItem('theme')) applyTheme(event.matches ? 'light' : 'dark');
+    });
 
     // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
 
     // Scroll progress bar + back-to-top visibility
     const progressBar = document.getElementById('progressBar');
     const toTop = document.getElementById('toTop');
+    let scrollTicking = false;
     window.addEventListener('scroll', () => {
-      const scrolled = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      progressBar.style.width = (height > 0 ? (scrolled / height) * 100 : 0) + '%';
-      toTop.classList.toggle('show', scrolled > 400);
-    });
-    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = document.documentElement.scrollTop;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          progressBar.style.width = (height > 0 ? (scrolled / height) * 100 : 0) + '%';
+          toTop.classList.toggle('show', scrolled > 400);
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
 
     // Active nav link highlighting on scroll
     const sections = document.querySelectorAll('section[id], header');
@@ -1069,16 +1221,18 @@
       };
       tick();
     };
-    const statObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) { animateCount(entry.target); statObserver.unobserve(entry.target); }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.stat .num[data-target]').forEach(el => statObserver.observe(el));
+    if (!reduceMotion) {
+      const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { animateCount(entry.target); statObserver.unobserve(entry.target); }
+        });
+      }, { threshold: 0.5 });
+      document.querySelectorAll('.stat .num[data-target]').forEach(el => statObserver.observe(el));
+    }
 
     // Rotating focus keyword
     const rotator = document.getElementById('rotator');
-    if (rotator) {
+    if (rotator && !reduceMotion) {
       const words = ['Kubernetes', 'CI/CD pipelines', 'Observability', 'Terraform', 'Platform Engineering', 'SRE practices'];
       let i = 0;
       setInterval(() => {
