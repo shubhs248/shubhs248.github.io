@@ -31,18 +31,18 @@
     "name": "Shubham Sharma",
     "url": "https://shubhs248.github.io/",
     "image": "https://shubhs248.github.io/profile.png",
-    "jobTitle": "Senior DevOps & Platform Engineer",
-    "worksFor": { "@type": "Organization", "name": "Amdocs" },
-    "description": "Senior DevOps & Platform Engineer with 7+ years in CI/CD, Kubernetes, observability, and infrastructure automation.",
+    "jobTitle": "Senior Consultant",
+    "worksFor": { "@type": "Organization", "name": "Infosys" },
+    "description": "Senior Consultant & Platform/DevSecOps Engineer with 7+ years across CI/CD, DevSecOps, Kubernetes, GenAI enablement, and infrastructure automation.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Pune",
       "addressCountry": "India"
     },
     "knowsAbout": [
-      "DevOps", "Site Reliability Engineering", "Platform Engineering",
-      "Kubernetes", "Docker", "Helm", "CI/CD", "Jenkins", "Azure DevOps",
-      "Terraform", "Ansible", "Prometheus", "Grafana", "AWS", "Azure", "Python"
+      "DevOps", "DevSecOps", "Site Reliability Engineering", "Platform Engineering",
+      "Generative AI", "GitHub Copilot", "Kubernetes", "Docker", "Helm", "CI/CD",
+      "Jenkins", "Azure DevOps", "Terraform", "Ansible", "Prometheus", "Grafana", "AWS", "Azure", "Python"
     ],
     "hasCredential": [
       { "@type": "EducationalOccupationalCredential", "name": "AWS Certified Cloud Practitioner", "credentialCategory": "certification", "url": "https://www.credly.com/users/shubham-sharma.51a1fe87" },
@@ -414,6 +414,117 @@
     .to-top.show { opacity: 1; transform: none; }
     .to-top:hover { background: var(--card-hover); }
 
+    /* Smooth anchor offset for sticky nav */
+    section, .case-study, .pipeline-visualizer, .terminal-card {
+      scroll-margin-top: 86px;
+    }
+
+    /* ---------- Floating Quick-Jump Pill (Mini HUD) ---------- */
+    .quick-hud {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      z-index: 85;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 10px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s cubic-bezier(0.16, 1, 0.3, 1), transform .3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .quick-hud.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .quick-hud a.hud-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 13px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s, background .2s, transform .15s;
+    }
+    .quick-hud a.hud-link:hover {
+      color: var(--text);
+      background: var(--card-hover);
+    }
+    .quick-hud a.hud-link.active {
+      color: #06101f;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      font-weight: 700;
+      box-shadow: 0 2px 10px var(--ring);
+    }
+    .quick-hud .hud-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--border);
+      margin: 0 4px;
+    }
+    .quick-hud .hud-cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--glow);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+    .quick-hud .hud-cv-btn:hover {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #06101f;
+      border-color: transparent;
+      transform: translateY(-1px);
+    }
+    .nav-resume-btn {
+      color: var(--accent) !important;
+      font-weight: 600 !important;
+    }
+
+    @media (max-width: 720px) {
+      .quick-hud {
+        bottom: 16px;
+        max-width: calc(100vw - 28px);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 5px 6px;
+        gap: 2px;
+      }
+      .quick-hud::-webkit-scrollbar { display: none; }
+      .quick-hud a.hud-link {
+        padding: 5px 9px;
+        font-size: 0.74rem;
+      }
+      .quick-hud .hud-cv-btn {
+        padding: 5px 9px;
+        font-size: 0.74rem;
+      }
+      .to-top {
+        bottom: 74px;
+        right: 16px;
+      }
+    }
+
     /* ---------- Animated name gradient ---------- */
     h1 .grad { background-size: 200% 200%; animation: gradShift 9s ease infinite; }
     @keyframes gradShift {
@@ -488,26 +599,459 @@
     .case-study h3 { font-size: 1.3rem; margin: 6px 0 10px; }
     .case-study .cs-lead { color: var(--muted); font-size: 0.96rem; max-width: 780px; }
     .case-study .cs-lead strong { color: var(--text); }
-    .arch { display: flex; align-items: stretch; gap: 10px; margin: 22px 0 4px; }
-    .arch-node {
-      flex: 1 1 0; min-width: 0; background: var(--bg-soft); border: 1px solid var(--border);
-      border-radius: 12px; padding: 14px 12px; text-align: center;
-      display: flex; flex-direction: column; gap: 3px; justify-content: center;
+    /* ---------- DevSecOps Pipeline Visualizer ---------- */
+    .pipeline-visualizer {
+      margin: 28px 0 16px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
     }
-    .arch-node .an-t { font-weight: 700; font-size: 0.92rem; color: var(--text); }
-    .arch-node .an-s { font-size: 0.76rem; color: var(--muted); }
-    .arch-arrow { flex: 0 0 auto; display: grid; place-items: center; color: var(--accent); font-size: 1.1rem; }
-    .arch-loop { text-align: center; margin-top: 12px; color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
+    .pv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .pv-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .pv-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .pv-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pv-tip {
+      font-size: 0.76rem;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .pv-sim-btn {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #06101f;
+      border: none;
+      padding: 7px 15px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .pv-sim-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px var(--ring);
+    }
+    .pv-track {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 4px 16px;
+      scrollbar-width: thin;
+    }
+    .pv-node {
+      flex: 1 1 0;
+      min-width: 132px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: all .25s ease;
+      color: inherit;
+      font-family: inherit;
+      position: relative;
+    }
+    .pv-node:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .pv-node.active {
+      border-color: var(--accent);
+      background: var(--card-hover);
+      box-shadow: 0 0 0 2px var(--ring), 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+    .pvn-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .pvn-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+    .pvn-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pvn-status {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      color: var(--accent);
+    }
+    .pv-arrow {
+      flex: 0 0 auto;
+      color: var(--accent);
+      font-size: 1.1rem;
+      opacity: 0.6;
+      user-select: none;
+    }
+    .pv-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 10px;
+      transition: opacity .22s ease, transform .22s ease;
+    }
+    .pv-panel.updating {
+      opacity: 0.4;
+      transform: translateY(4px);
+    }
+    .pv-panel-head {
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+    .pv-stage-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .pv-stage-heading {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 4px;
+    }
+    .pv-panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .pv-col-lbl {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .pv-tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .pv-col p {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .pv-metric-col {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .pv-metric-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .pv-metric-lbl {
+      font-size: 0.76rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    @media (max-width: 860px) {
+      .pv-panel-grid { grid-template-columns: 1fr; gap: 14px; }
+      .pv-metric-col { text-align: left; }
+    }
     @media (max-width: 720px) {
-      .arch { flex-direction: column; }
-      .arch-node { width: 100%; }
-      .arch-arrow { transform: rotate(90deg); padding: 2px 0; }
+      .pipeline-visualizer { padding: 16px; }
+      .pv-arrow { display: none; }
+      .pv-track { gap: 10px; }
+      .pv-node { min-width: 145px; }
     }
     .cs-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
     .cs-point h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 6px; }
     .cs-point p { color: var(--muted); font-size: 0.9rem; }
     .cs-point strong { color: var(--text); }
     @media (max-width: 720px) { .cs-points { grid-template-columns: 1fr; } }
+
+    /* ---------- Terminal Simulator ---------- */
+    .terminal-card {
+      margin-top: 36px;
+      background: #141417;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    :root[data-theme="light"] .terminal-card {
+      background: #1e2430;
+      border-color: #cbd5e1;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.16);
+    }
+    .terminal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: #0d0d0f;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    :root[data-theme="light"] .terminal-head {
+      background: #141a24;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .terminal-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .t-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .t-red { background: #ef4444; }
+    .t-yellow { background: #eab308; }
+    .t-green { background: #22c55e; }
+    .terminal-title {
+      color: #94a3b8;
+      font-size: 0.78rem;
+      margin-left: 6px;
+      user-select: none;
+    }
+    .terminal-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .t-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      color: #38bdf8;
+    }
+    .dot-live {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+    .t-btn-clear {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #94a3b8;
+      font-family: inherit;
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .t-btn-clear:hover {
+      color: #fff;
+      border-color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+    }
+    .terminal-quick-cmds {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .t-quick-label {
+      font-size: 0.74rem;
+      color: #64748b;
+      margin-right: 4px;
+      flex-shrink: 0;
+    }
+    .t-cmd-chip {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      color: #38bdf8;
+      font-family: inherit;
+      font-size: 0.76rem;
+      padding: 4px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+    .t-cmd-chip:hover {
+      background: rgba(56, 189, 248, 0.20);
+      border-color: #38bdf8;
+      transform: translateY(-1px);
+    }
+    .terminal-body {
+      padding: 16px 20px;
+      min-height: 260px;
+      max-height: 400px;
+      overflow-y: auto;
+      overflow-x: auto;
+      font-size: 0.81rem;
+      line-height: 1.5;
+      color: #cbd5e1;
+      scroll-behavior: smooth;
+      background: #090d14;
+    }
+    :root[data-theme="light"] .terminal-body {
+      background: #0d131f;
+    }
+    .terminal-body::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    .terminal-body::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .terminal-body::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 4px;
+    }
+    .t-out-block {
+      margin: 8px 0 18px;
+      font-family: inherit;
+      font-size: 0.81rem;
+      line-height: 1.5;
+      white-space: pre;
+      word-break: normal;
+      color: #cbd5e1;
+      tab-size: 2;
+    }
+    .t-line-cmd {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+      margin-bottom: 4px;
+      font-size: 0.82rem;
+    }
+    .t-ps1-arrow { color: #38bdf8; font-weight: 700; }
+    .t-ps1-dir { color: #38bdf8; font-weight: 600; }
+    .t-ps1-git { color: #fbbf24; }
+    .t-ps1-branch { color: #f87171; font-weight: 600; }
+    .t-ps1-sym { color: #4ade80; font-weight: 700; margin-right: 4px; }
+    .t-cmd-text { color: #f8fafc; font-weight: 600; }
+    .t-out-k8s-head { color: #94a3b8; font-weight: 700; }
+    .t-out-green { color: #4ade80; }
+    .t-out-cyan { color: #38bdf8; }
+    .t-out-yellow { color: #facc15; }
+    .t-out-purple { color: #c084fc; }
+    .t-out-dim { color: #64748b; }
+    .t-out-bold { font-weight: 700; }
+    .terminal-input-row {
+      display: flex;
+      align-items: center;
+      padding: 12px 18px;
+      background: #0d0d0f;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 10px;
+    }
+    :root[data-theme="light"] .terminal-input-row {
+      background: #141a24;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .t-prompt {
+      font-size: 0.82rem;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .t-user { color: #38bdf8; font-weight: 600; }
+    .t-at { color: #64748b; }
+    .t-host { color: #818cf8; }
+    .t-dir { color: #facc15; }
+    .t-sym { color: #38bdf8; font-weight: 700; margin-left: 2px; }
+    .terminal-input-row input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #f8fafc;
+      font-family: inherit;
+      font-size: 0.84rem;
+      padding: 4px 0;
+    }
+    .terminal-input-row input::placeholder {
+      color: #475569;
+    }
+    .t-run-btn {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #06101f;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: inherit;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s, opacity .15s;
+      flex-shrink: 0;
+    }
+    .t-run-btn:hover {
+      transform: translateY(-1px);
+    }
+    @media (max-width: 720px) {
+      .terminal-title { display: none; }
+      .t-prompt .t-host, .t-prompt .t-at { display: none; }
+      .terminal-body { font-size: 0.76rem; max-height: 280px; padding: 14px; }
+    }
 
     /* ---------- Writing ---------- */
     .writing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-bottom: 28px; }
@@ -594,6 +1138,7 @@
         <a href="#writing">Writing</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <a href="Shubham_Sharma_Resume.pdf" download="Shubham_Sharma_Resume.pdf" class="nav-resume-btn" title="Download Resume (PDF)">Resume ↗</a>
       </div>
       <div style="display:flex; align-items:center; gap:14px;">
         <button class="theme-toggle" id="themeToggle" aria-label="Switch to light theme" aria-pressed="false" title="Toggle theme">🌙</button>
@@ -619,9 +1164,13 @@
           regions and reducing incident detection time by 70%.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#contact">Start a conversation →</a>
+          <a class="btn btn-primary" href="Shubham_Sharma_Resume.pdf" download="Shubham_Sharma_Resume.pdf" aria-label="Download Shubham Sharma Resume PDF">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Resume (PDF)
+          </a>
+          <a class="btn btn-ghost" href="#contact">Start a conversation →</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/shubhs248/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn btn-ghost" href="#projects">Explore selected work</a>
+          <a class="btn btn-ghost" href="#projects">Selected work</a>
         </div>
         <p class="focus-line">Currently deep in <span class="rotator" id="rotator">Kubernetes</span></p>
         <div class="availability"><span class="dot" aria-hidden="true"></span> Open to Senior Platform / DevOps opportunities</div>
@@ -788,17 +1337,45 @@
         <div class="exp reveal">
           <div class="exp-head">
             <span class="company-wrap">
+              <span class="co-logo"><img src="infosys.png" alt="Infosys logo" loading="lazy" /></span>
+              <span class="role company">Infosys</span>
+            </span>
+            <span class="period">Aug 2026 – Present</span>
+          </div>
+          <div class="org">Pune, India</div>
+
+          <div class="role-block">
+            <div class="role-sub">
+              <span class="role-sub-title">Senior Consultant</span>
+              <span class="role-sub-period">Aug 2026 – Present</span>
+            </div>
+            <ul>
+              <li>Design enterprise roadmaps and <strong>AI-integrated DevSecOps CI/CD/CT pipelines</strong> leveraging intelligent automation and testing methodologies.</li>
+              <li>Architect and integrate tooling across <strong>GitHub, GitLab, Azure DevOps</strong>, and multi-cloud platforms on <strong>AWS &amp; Azure</strong>.</li>
+              <li>Lead <strong>Generative AI enablement</strong> across engineering teams, mentoring developers on <strong>GitHub Copilot, GitLab Duo</strong>, and Microsoft 365 Copilot to accelerate development.</li>
+              <li>Embed continuous security and vulnerability governance with <strong>SAST, DAST, and SCA</strong> tools (GitHub Advanced Security, SonarQube, Burp Suite, Black Duck) for shift-left compliance.</li>
+              <li>Standardize <strong>Infrastructure as Code (IaC)</strong> module architecture and multi-environment provisioning using <strong>Terraform, Ansible, and CloudFormation</strong>.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">DevSecOps</span><span class="tag">GenAI</span><span class="tag">GitHub Copilot</span><span class="tag">Terraform</span><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GitHub Advanced Security</span><span class="tag">SonarQube</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp reveal">
+          <div class="exp-head">
+            <span class="company-wrap">
               <span class="co-logo"><img src="amdocs.png" alt="Amdocs logo" loading="lazy" /></span>
               <span class="role company">Amdocs</span>
             </span>
-            <span class="period">Jan 2022 – Present</span>
+            <span class="period">Jan 2022 – Aug 2026</span>
           </div>
           <div class="org">Pune, India</div>
 
           <div class="role-block">
             <div class="role-sub">
               <span class="role-sub-title">Senior DevOps Engineer</span>
-              <span class="role-sub-period">Jun 2024 – Present</span>
+              <span class="role-sub-period">Jun 2024 – Aug 2026</span>
             </div>
             <ul>
               <li>Designed enterprise DevOps enablement &amp; observability platforms supporting <strong>60+ managed services</strong>, improving operational visibility and reducing incident detection time by <strong>70%</strong>.</li>
@@ -976,18 +1553,96 @@
           giving teams unified visibility and cutting <strong>incident detection time by 70%</strong>.
         </p>
 
-        <div class="arch" role="img" aria-label="Architecture flow: Developers (Git/Bitbucket) to CI/CD (Jenkins) to multi-region Kubernetes to Prometheus and Grafana to Alerting and on-call, forming a continuous feedback and reliability loop.">
-          <div class="arch-node"><span class="an-t">Developers</span><span class="an-s">Git / Bitbucket</span></div>
-          <div class="arch-arrow" aria-hidden="true">&rarr;</div>
-          <div class="arch-node"><span class="an-t">CI/CD</span><span class="an-s">Jenkins pipelines</span></div>
-          <div class="arch-arrow" aria-hidden="true">&rarr;</div>
-          <div class="arch-node"><span class="an-t">Kubernetes</span><span class="an-s">multi-region</span></div>
-          <div class="arch-arrow" aria-hidden="true">&rarr;</div>
-          <div class="arch-node"><span class="an-t">Prometheus</span><span class="an-s">+ Grafana</span></div>
-          <div class="arch-arrow" aria-hidden="true">&rarr;</div>
-          <div class="arch-node"><span class="an-t">Alerting</span><span class="an-s">&amp; on-call</span></div>
+        <!-- Interactive DevSecOps Pipeline Visualizer -->
+        <div class="pipeline-visualizer" id="pipelineVisualizer" aria-label="Interactive DevSecOps Pipeline Flowchart">
+          <div class="pv-header">
+            <div>
+              <span class="pv-tag">INTERACTIVE ARCHITECTURE</span>
+              <h4 class="pv-title">Enterprise DevSecOps &amp; Platform Lifecycle</h4>
+            </div>
+            <div class="pv-actions">
+              <span class="pv-tip">Click any stage to inspect guardrails</span>
+              <button class="pv-sim-btn" id="pvSimBtn" type="button" title="Simulate deployment through all pipeline stages">▶ Simulate Pipeline</button>
+            </div>
+          </div>
+
+          <div class="pv-track" role="tablist" aria-label="Pipeline Stages">
+            <button class="pv-node active" type="button" role="tab" id="pvTab-0" aria-selected="true" aria-controls="pvPanel" data-index="0">
+              <div class="pvn-num">01</div>
+              <div class="pvn-name">Code &amp; SCM</div>
+              <div class="pvn-sub">GitHub / GitLab</div>
+              <span class="pvn-status">Verified</span>
+            </button>
+            <div class="pv-arrow" aria-hidden="true">&rarr;</div>
+
+            <button class="pv-node" type="button" role="tab" id="pvTab-1" aria-selected="false" aria-controls="pvPanel" data-index="1">
+              <div class="pvn-num">02</div>
+              <div class="pvn-name">GenAI Review</div>
+              <div class="pvn-sub">Copilot / Duo</div>
+              <span class="pvn-status">AI-Assisted</span>
+            </button>
+            <div class="pv-arrow" aria-hidden="true">&rarr;</div>
+
+            <button class="pv-node" type="button" role="tab" id="pvTab-2" aria-selected="false" aria-controls="pvPanel" data-index="2">
+              <div class="pvn-num">03</div>
+              <div class="pvn-name">Security Gates</div>
+              <div class="pvn-sub">SAST / DAST / SCA</div>
+              <span class="pvn-status">Shift-Left</span>
+            </button>
+            <div class="pv-arrow" aria-hidden="true">&rarr;</div>
+
+            <button class="pv-node" type="button" role="tab" id="pvTab-3" aria-selected="false" aria-controls="pvPanel" data-index="3">
+              <div class="pvn-num">04</div>
+              <div class="pvn-name">IaC Provision</div>
+              <div class="pvn-sub">Terraform / Ansible</div>
+              <span class="pvn-status">Immutable</span>
+            </button>
+            <div class="pv-arrow" aria-hidden="true">&rarr;</div>
+
+            <button class="pv-node" type="button" role="tab" id="pvTab-4" aria-selected="false" aria-controls="pvPanel" data-index="4">
+              <div class="pvn-num">05</div>
+              <div class="pvn-name">Deploy &amp; Run</div>
+              <div class="pvn-sub">Kubernetes / Helm</div>
+              <span class="pvn-status">Zero-Downtime</span>
+            </button>
+            <div class="pv-arrow" aria-hidden="true">&rarr;</div>
+
+            <button class="pv-node" type="button" role="tab" id="pvTab-5" aria-selected="false" aria-controls="pvPanel" data-index="5">
+              <div class="pvn-num">06</div>
+              <div class="pvn-name">Observe &amp; SRE</div>
+              <div class="pvn-sub">Prometheus / Grafana</div>
+              <span class="pvn-status">24/7 SLA</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Detail Panel -->
+          <div class="pv-panel" id="pvPanel" role="tabpanel" aria-labelledby="pvTab-0">
+            <div class="pv-panel-head">
+              <span class="pv-stage-badge" id="pvStageBadge">STAGE 01 · CODE &amp; SCM</span>
+              <h5 class="pv-stage-heading" id="pvStageHeading">Source Control &amp; Developer Collaboration</h5>
+            </div>
+            <div class="pv-panel-grid">
+              <div class="pv-col">
+                <span class="pv-col-lbl">Platform Tooling</span>
+                <div class="pv-tool-tags" id="pvTools">
+                  <span class="tag">GitHub Enterprise</span>
+                  <span class="tag">GitLab</span>
+                  <span class="tag">Bitbucket</span>
+                  <span class="tag">Git Hooks</span>
+                </div>
+              </div>
+              <div class="pv-col">
+                <span class="pv-col-lbl">Automated Guardrails &amp; Policies</span>
+                <p id="pvPolicies">Branch protection rules with required linear history, mandatory 2-peer reviews, automated conventional commit linting, and semantic version tagging.</p>
+              </div>
+              <div class="pv-col pv-metric-col">
+                <span class="pv-col-lbl">Measurable Impact</span>
+                <div class="pv-metric-num" id="pvMetricNum">400+</div>
+                <div class="pv-metric-lbl" id="pvMetricLbl">Weekly pull requests merged with automated branch compliance</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="arch-loop" aria-hidden="true">&#8635; continuous feedback &middot; reliability loop</div>
 
         <div class="cs-points">
           <div class="cs-point">
@@ -1006,6 +1661,36 @@
         <div class="project-links" style="margin-top:22px">
           <a href="https://github.com/shubhs248/Operations-Dashboard" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.42.36.79 1.08.79 2.18v3.23c0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg> Public, runnable build: Operations Dashboard ↗</a>
         </div>
+      </div>
+
+      <!-- Interactive Terminal Simulator -->
+      <div class="terminal-card reveal" id="terminalSimulator" aria-label="Interactive Platform and DevSecOps CLI Console">
+        <div class="terminal-head">
+          <div class="terminal-controls">
+            <span class="t-dot t-red" aria-hidden="true"></span>
+            <span class="t-dot t-yellow" aria-hidden="true"></span>
+            <span class="t-dot t-green" aria-hidden="true"></span>
+            <span class="terminal-title">shubham@platform-cluster: ~ (zsh · kubeconfig: prod)</span>
+          </div>
+          <div class="terminal-actions">
+            <span class="t-status"><span class="dot-live" aria-hidden="true"></span> mesh-online</span>
+            <button class="t-btn-clear" id="termClearBtn" type="button" title="Clear console">clear</button>
+          </div>
+        </div>
+        <div class="terminal-quick-cmds" aria-label="Preset CLI commands">
+          <span class="t-quick-label">Try commands:</span>
+          <button class="t-cmd-chip" type="button" data-cmd="terraform plan">terraform plan</button>
+          <button class="t-cmd-chip" type="button" data-cmd="kubectl get pods -n platform">kubectl get pods</button>
+          <button class="t-cmd-chip" type="button" data-cmd="trivy image scan">trivy image scan</button>
+          <button class="t-cmd-chip" type="button" data-cmd="copilot status">copilot status</button>
+          <button class="t-cmd-chip" type="button" data-cmd="help">help</button>
+        </div>
+        <div class="terminal-body" id="termOutput" role="log" aria-live="polite"></div>
+        <form class="terminal-input-row" id="termForm">
+          <span class="t-prompt"><span class="t-user">shubham</span><span class="t-at">@</span><span class="t-host">k8s-prod</span> <span class="t-dir">~</span> <span class="t-sym">❯</span></span>
+          <input type="text" id="termInput" autocomplete="off" spellcheck="false" placeholder="Type a command or click a chip above (try: 'terraform plan')" aria-label="Terminal command input" />
+          <button type="submit" class="t-run-btn">Run ↵</button>
+        </form>
       </div>
     </div>
   </section>
@@ -1107,6 +1792,20 @@
     </div>
   </footer>
 
+  <!-- ===== Floating Quick-Jump Pill (Mini HUD) ===== -->
+  <aside class="quick-hud" id="quickHud" aria-label="Quick section navigation">
+    <a href="#experience" data-hud="experience" class="hud-link" title="Jump to Experience">Experience</a>
+    <a href="#projects" data-hud="projects" class="hud-link" title="Jump to Work">Work</a>
+    <a href="#pipelineVisualizer" data-hud="pipelineVisualizer" class="hud-link" title="Jump to DevSecOps Pipeline">Pipeline</a>
+    <a href="#terminalSimulator" data-hud="terminalSimulator" class="hud-link" title="Jump to CLI Terminal">Terminal</a>
+    <a href="#contact" data-hud="contact" class="hud-link" title="Jump to Contact">Contact</a>
+    <span class="hud-divider" aria-hidden="true"></span>
+    <a href="Shubham_Sharma_Resume.pdf" download="Shubham_Sharma_Resume.pdf" class="hud-cv-btn" title="Download Resume (PDF)" aria-label="Download Shubham Sharma Resume PDF">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Resume
+    </a>
+  </aside>
+
   <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
   <script>
@@ -1174,9 +1873,10 @@
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
 
-    // Scroll progress bar + back-to-top visibility
+    // Scroll progress bar + back-to-top + Quick HUD visibility
     const progressBar = document.getElementById('progressBar');
     const toTop = document.getElementById('toTop');
+    const quickHud = document.getElementById('quickHud');
     let scrollTicking = false;
     window.addEventListener('scroll', () => {
       if (!scrollTicking) {
@@ -1185,6 +1885,7 @@
           const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
           progressBar.style.width = (height > 0 ? (scrolled / height) * 100 : 0) + '%';
           toTop.classList.toggle('show', scrolled > 400);
+          if (quickHud) quickHud.classList.toggle('show', scrolled > 380);
           scrollTicking = false;
         });
         scrollTicking = true;
@@ -1204,6 +1905,23 @@
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     sections.forEach(s => { if (s.id) navObserver.observe(s); });
+
+    // Active Quick HUD link highlighting on scroll
+    const hudAnchors = document.querySelectorAll('.quick-hud a[data-hud]');
+    if (hudAnchors.length > 0) {
+      const hudObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const targetId = entry.target.id;
+            hudAnchors.forEach(a => a.classList.toggle('active', a.dataset.hud === targetId));
+          }
+        });
+      }, { rootMargin: '-30% 0px -40% 0px' });
+      ['experience', 'projects', 'pipelineVisualizer', 'terminalSimulator', 'contact'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) hudObserver.observe(el);
+      });
+    }
 
     // Count-up animation for stats
     const animateCount = (el) => {
@@ -1233,7 +1951,7 @@
     // Rotating focus keyword
     const rotator = document.getElementById('rotator');
     if (rotator && !reduceMotion) {
-      const words = ['Kubernetes', 'CI/CD pipelines', 'Observability', 'Terraform', 'Platform Engineering', 'SRE practices'];
+      const words = ['Kubernetes', 'DevSecOps', 'CI/CD pipelines', 'GenAI Enablement', 'Observability', 'Terraform', 'Platform Engineering'];
       let i = 0;
       setInterval(() => {
         rotator.classList.add('swap');
@@ -1255,6 +1973,304 @@
           statusEl.className = 'form-status success';
         }
         history.replaceState({}, '', location.pathname + location.hash);
+      }
+    })();
+
+    // Terminal Simulator
+    (function () {
+      const termOutput = document.getElementById('termOutput');
+      const termForm = document.getElementById('termForm');
+      const termInput = document.getElementById('termInput');
+      const clearBtn = document.getElementById('termClearBtn');
+      const chips = document.querySelectorAll('.t-cmd-chip');
+      if (!termOutput || !termForm || !termInput) return;
+
+      const history = [];
+      let historyIdx = -1;
+
+      const welcomeMessage = `<pre class="t-out-block"><span class="t-out-cyan">┌───────────────────────────────────────────────────────────────┐</span>
+<span class="t-out-cyan">│</span>  <span class="t-out-yellow t-out-bold">Platform &amp; DevSecOps Simulator v2.6.0</span>                         <span class="t-out-cyan">│</span>
+<span class="t-out-cyan">│</span>  Connected to: <span class="t-out-green">production-k8s-mesh</span> (AP-South-1 · Multi-Region) <span class="t-out-cyan">│</span>
+<span class="t-out-cyan">│</span>  Security Guardrails: <span class="t-out-green">Active (SAST/DAST/SCA)</span>                  <span class="t-out-cyan">│</span>
+<span class="t-out-cyan">└───────────────────────────────────────────────────────────────┘</span>
+<span class="t-out-dim">Type a command or click any chip above to run. Try:</span> <span class="t-out-cyan">terraform plan</span></pre>`;
+      termOutput.innerHTML = welcomeMessage;
+
+      const commands = {
+        'help': () => `Available commands:
+  <span class="t-out-green">terraform plan</span>                 Inspect multi-region infrastructure provisioning
+  <span class="t-out-green">kubectl get pods -n platform</span>   List real-time Kubernetes platform workloads
+  <span class="t-out-green">trivy image scan</span>               Execute automated DevSecOps container security audit
+  <span class="t-out-green">copilot status</span>                 Review AI-integrated DevSecOps telemetry
+  <span class="t-out-green">whoami</span>                         Display engineer profile &amp; credentials
+  <span class="t-out-green">clear</span>                          Clear terminal buffer`,
+
+        'kubectl': () => commands['kubectl get pods'](),
+        'kubectl get pods': () => `<span class="t-out-k8s-head">NAME                                   READY   STATUS    RESTARTS   AGE    IP            NODE</span>
+ingress-nginx-controller-7f89d-v2k4x   1/1     <span class="t-out-green">Running</span>   0          42d    10.244.1.18   node-prod-ap-south-1a
+prometheus-k8s-mesh-0                  2/2     <span class="t-out-green">Running</span>   0          18d    10.244.2.45   node-prod-ap-south-1b
+grafana-core-59b7d87bc-q9m2z           1/1     <span class="t-out-green">Running</span>   0          29d    10.244.1.92   node-prod-ap-south-1a
+vault-cluster-enterprise-0             1/1     <span class="t-out-green">Running</span>   0          65d    10.244.3.12   node-prod-ap-south-1c
+observability-collector-d48f9-7xb3w    1/1     <span class="t-out-green">Running</span>   0          12d    10.244.2.81   node-prod-ap-south-1b
+security-gatekeeper-audit-9c2b1-p54x   1/1     <span class="t-out-green">Running</span>   0          31d    10.244.3.33   node-prod-ap-south-1c
+
+<span class="t-out-dim">Cluster Summary:</span> <span class="t-out-green">6/6 pods Healthy</span> · <span class="t-out-cyan">Multi-Region Replication: SYNCED (latency &lt; 24ms)</span>`,
+
+        'kubectl get pods -n platform': () => commands['kubectl get pods'](),
+
+        'trivy': () => commands['trivy image scan'](),
+        'trivy image scan': () => `<span class="t-out-dim">2026-10-11T12:00:00.124Z</span>  <span class="t-out-cyan">INFO</span>  Scanning container: <span class="t-out-purple">platform/core-api:latest</span>
+<span class="t-out-dim">2026-10-11T12:00:00.892Z</span>  <span class="t-out-cyan">INFO</span>  Vulnerability DB: 2026-10-11 (up to date)
+<span class="t-out-dim">2026-10-11T12:00:01.341Z</span>  <span class="t-out-cyan">INFO</span>  DevSecOps Policy: Shift-Left Gate [HIGH, CRITICAL]
+
+<span class="t-out-k8s-head">Target: platform/core-api:latest (debian 12.7)</span>
+<span class="t-out-dim">================================================================================</span>
+<span class="t-out-green">✔ SAST Analysis:</span>       0 vulnerabilities (SonarQube A-Rating)
+<span class="t-out-green">✔ Secret Detection:</span>    0 plaintext credentials detected
+<span class="t-out-green">✔ SCA Dependency Scan:</span> 0 vulnerable open-source packages
+<span class="t-out-green">✔ SBOM Export:</span>         CycloneDX 1.5 JSON generated
+<span class="t-out-green">✔ Policy Gate:</span>         <span class="t-out-green t-out-bold">PASSED</span> (Approved for automated production rollout)`,
+
+        'trivy image scan --severity critical': () => commands['trivy image scan'](),
+
+        'terraform': () => commands['terraform plan'](),
+        'terraform plan': () => `<span class="t-out-dim">Acquiring state lock. This may take a few moments...</span>
+<span class="t-out-dim">Refreshing Terraform state in-memory...</span>
+
+<span class="t-out-cyan">module.multi_region_mesh.aws_vpc.platform_primary:</span> <span class="t-out-dim">Refreshing state... [id=vpc-0a81f349]</span>
+<span class="t-out-cyan">module.multi_region_mesh.aws_eks_cluster.mesh_core:</span> <span class="t-out-dim">Refreshing state... [id=platform-prod-eks]</span>
+<span class="t-out-cyan">module.multi_region_mesh.helm_release.cert_manager:</span> <span class="t-out-dim">Refreshing state... [id=cert-manager]</span>
+
+<span class="t-out-yellow t-out-bold">Terraform will perform the following actions:</span>
+
+  <span class="t-out-cyan"># module.multi_region_mesh.aws_eks_node_group.spot_workers</span> will be updated in-place
+  <span class="t-out-yellow">~</span> resource "aws_eks_node_group" "spot_workers" {
+      <span class="t-out-yellow">~</span> scaling_config {
+          <span class="t-out-yellow">~</span> max_size     = <span class="t-out-dim">24</span> -&gt; <span class="t-out-green">32</span>
+            min_size     = 4
+          <span class="t-out-yellow">~</span> desired_size = <span class="t-out-dim">12</span> -&gt; <span class="t-out-green">16</span>
+        }
+    }
+
+<span class="t-out-green t-out-bold">Plan: 0 to add, 1 to change, 0 to destroy.</span>
+
+<span class="t-out-cyan t-out-bold">Changes to Outputs:</span>
+  <span class="t-out-green">+</span> cluster_health_check = <span class="t-out-green">"synced (latency &lt; 22ms)"</span>`,
+
+        'copilot': () => commands['copilot pipeline-audit'](),
+        'copilot status': () => commands['copilot pipeline-audit'](),
+        'copilot pipeline-audit': () => `<span class="t-out-purple">[AI DevSecOps Telemetry]</span> Analyzing CI/CD/CT pipelines across 60+ managed services...
+
+┌────────────────────────────┬──────────────┬────────────────────────────────┐
+│ Check                      │ Metric       │ Status                         │
+├────────────────────────────┼──────────────┼────────────────────────────────┤
+│ SonarQube Code Quality     │ 99.4% pass   │ <span class="t-out-green">✔ PASSED</span>                       │
+│ AI Copilot Velocity Impact │ +34% speedup │ <span class="t-out-green">✔ OPTIMIZED</span>                    │
+│ Continuous Testing (CT)    │ 88.2% cov    │ <span class="t-out-green">✔ PASSED</span>                       │
+│ Supply Chain Signing       │ SLSA Level 3 │ <span class="t-out-green">✔ VERIFIED (Sigstore/Cosign)</span>   │
+│ Multi-Region Cluster SLA   │ 99.98% up    │ <span class="t-out-green">✔ HEALTHY</span>                      │
+└────────────────────────────┴──────────────┴────────────────────────────────┘
+
+<span class="t-out-green t-out-bold">Status: All AI security guardrails active. Zero manual intervention required.</span>`,
+
+        'whoami': () => `<span class="t-out-cyan t-out-bold">Shubham Sharma</span> — Senior Consultant @ Infosys
+Platform &amp; DevSecOps Lead (7+ years experience)
+Certifications: AWS Cloud Practitioner · Microsoft Azure Fundamentals (AZ-900)
+Location: Pune, India
+Profile: https://shubhs248.github.io/`
+      };
+
+      const runCommand = (rawCmd) => {
+        const cmd = rawCmd.trim();
+        if (!cmd) return;
+        history.push(cmd);
+        historyIdx = history.length;
+
+        if (cmd.toLowerCase() === 'clear') {
+          termOutput.innerHTML = welcomeMessage;
+          return;
+        }
+
+        const normCmd = cmd.toLowerCase().replace(/\s+/g, ' ');
+        const outputFn = commands[normCmd] || Object.keys(commands).find(k => normCmd.startsWith(k) && commands[k]);
+
+        const cmdLine = `<div class="t-line-cmd"><span class="t-ps1-arrow">➜</span> <span class="t-ps1-dir">platform-infra</span> <span class="t-ps1-git">git:(<span class="t-ps1-branch">main</span>)</span> <span class="t-ps1-sym">❯</span> <span class="t-cmd-text">${escapeHtml(cmd)}</span></div>`;
+        let resultHtml = '';
+        if (outputFn && typeof (commands[outputFn] || outputFn) === 'function') {
+          const fn = typeof outputFn === 'string' ? commands[outputFn] : outputFn;
+          resultHtml = fn();
+        } else {
+          resultHtml = `<span class="t-out-dim">zsh: command not found: <span style="color:#ef4444">${escapeHtml(cmd)}</span>. Type <span class="t-out-cyan">'help'</span> for available commands.</span>`;
+        }
+
+        const outputBlock = `<pre class="t-out-block">${resultHtml.trim()}</pre>`;
+        termOutput.insertAdjacentHTML('beforeend', cmdLine + outputBlock);
+        termOutput.scrollTop = termOutput.scrollHeight;
+      };
+
+      function escapeHtml(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      }
+
+      termForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const cmd = termInput.value;
+        termInput.value = '';
+        runCommand(cmd);
+      });
+
+      termInput.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowUp') {
+          if (history.length > 0 && historyIdx > 0) {
+            historyIdx--;
+            termInput.value = history[historyIdx];
+          }
+          e.preventDefault();
+        } else if (e.key === 'ArrowDown') {
+          if (historyIdx < history.length - 1) {
+            historyIdx++;
+            termInput.value = history[historyIdx];
+          } else {
+            historyIdx = history.length;
+            termInput.value = '';
+          }
+          e.preventDefault();
+        }
+      });
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const cmd = chip.dataset.cmd;
+          termInput.value = cmd;
+          runCommand(cmd);
+          termInput.focus();
+        });
+      });
+
+      clearBtn.addEventListener('click', () => {
+        termOutput.innerHTML = welcomeMessage;
+        termInput.value = '';
+        termInput.focus();
+      });
+    })();
+
+    // DevSecOps Pipeline Visualizer
+    (function () {
+      const stages = [
+        {
+          badge: "STAGE 01 · CODE & SCM",
+          heading: "Source Control & Developer Collaboration",
+          tools: ["GitHub Enterprise", "GitLab", "Bitbucket", "Git Hooks"],
+          policies: "Branch protection rules with required linear history, mandatory 2-peer reviews, automated conventional commit linting, and semantic version tagging.",
+          metricNum: "400+",
+          metricLbl: "Weekly pull requests merged with automated branch compliance"
+        },
+        {
+          badge: "STAGE 02 · GENAI ENABLEMENT",
+          heading: "AI-Assisted Engineering & Code Synthesis",
+          tools: ["GitHub Copilot", "GitLab Duo", "M365 Copilot", "Prompt Guard"],
+          policies: "Context-aware code completion, automated unit test generation, AI-generated PR summaries, and inline secret/vulnerability prevention before commit.",
+          metricNum: "+34%",
+          metricLbl: "Engineering delivery velocity boost across participating squads"
+        },
+        {
+          badge: "STAGE 03 · SECURITY GATES",
+          heading: "Shift-Left Vulnerability & Security Governance",
+          tools: ["GitHub Advanced Security", "SonarQube", "Trivy", "Burp Suite", "Black Duck"],
+          policies: "Blocking pull requests on Critical/High SAST issues, container vulnerability scanning on push, SCA open-source dependency auditing, and automated CycloneDX SBOM generation.",
+          metricNum: "40%",
+          metricLbl: "Reduction in reported production vulnerabilities via quality gates"
+        },
+        {
+          badge: "STAGE 04 · IAC PROVISIONING",
+          heading: "Declarative Infrastructure as Code",
+          tools: ["Terraform", "Ansible", "CloudFormation", "Checkov"],
+          policies: "Version-controlled infrastructure modules, automated drift detection against cloud state, immutable remote state locking, and ephemeral staging environments.",
+          metricNum: "17+",
+          metricLbl: "Automated pipelines provisioning multi-region infrastructure"
+        },
+        {
+          badge: "STAGE 05 · DEPLOY & RUN",
+          heading: "Container Orchestration & Continuous Delivery",
+          tools: ["Kubernetes", "Helm", "Azure DevOps", "Jenkins"],
+          policies: "Zero-downtime rolling & blue/green deployments, automated canary analysis, horizontal pod autoscaling, and spot-worker failover across multi-region clusters.",
+          metricNum: "60+",
+          metricLbl: "Enterprise managed services orchestrated with 99.98% availability"
+        },
+        {
+          badge: "STAGE 06 · OBSERVE & SRE",
+          heading: "Continuous Observability & Incident Response",
+          tools: ["Prometheus", "Grafana", "Splunk", "ServiceNow"],
+          policies: "SLI/SLO error budget monitoring, multi-region replication alerting, synthetic health probes, automated ticket routing, and disaster-recovery replication testing.",
+          metricNum: "70%",
+          metricLbl: "Faster incident detection (MTTD) via centralized Prometheus & Grafana"
+        }
+      ];
+
+      const nodes = document.querySelectorAll('.pv-node');
+      const panel = document.getElementById('pvPanel');
+      const stageBadge = document.getElementById('pvStageBadge');
+      const stageHeading = document.getElementById('pvStageHeading');
+      const toolsContainer = document.getElementById('pvTools');
+      const policiesEl = document.getElementById('pvPolicies');
+      const metricNumEl = document.getElementById('pvMetricNum');
+      const metricLblEl = document.getElementById('pvMetricLbl');
+      const simBtn = document.getElementById('pvSimBtn');
+
+      if (!nodes.length || !panel) return;
+
+      const setActiveStage = (index) => {
+        nodes.forEach((n, i) => {
+          const isActive = i === index;
+          n.classList.toggle('active', isActive);
+          n.setAttribute('aria-selected', String(isActive));
+        });
+
+        const data = stages[index];
+        if (!data) return;
+
+        panel.classList.add('updating');
+        setTimeout(() => {
+          stageBadge.textContent = data.badge;
+          stageHeading.textContent = data.heading;
+          policiesEl.textContent = data.policies;
+          metricNumEl.textContent = data.metricNum;
+          metricLblEl.textContent = data.metricLbl;
+
+          toolsContainer.innerHTML = data.tools.map(t => `<span class="tag">${t}</span>`).join('');
+          panel.classList.remove('updating');
+        }, 120);
+      };
+
+      nodes.forEach((node) => {
+        node.addEventListener('click', () => {
+          const idx = parseInt(node.dataset.index, 10);
+          setActiveStage(idx);
+        });
+      });
+
+      let simInterval = null;
+      if (simBtn) {
+        simBtn.addEventListener('click', () => {
+          if (simInterval) return;
+          let cur = 0;
+          simBtn.disabled = true;
+          simBtn.textContent = '● Simulating Pipeline...';
+          setActiveStage(0);
+
+          simInterval = setInterval(() => {
+            cur++;
+            if (cur < stages.length) {
+              setActiveStage(cur);
+              nodes[cur].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } else {
+              clearInterval(simInterval);
+              simInterval = null;
+              simBtn.disabled = false;
+              simBtn.textContent = '▶ Simulate Pipeline';
+            }
+          }, 900);
+        });
       }
     })();
   </script>

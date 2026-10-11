@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubham Sharma — Resume</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 0.5in 0.55in;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.45;
+      font-size: 9.6pt;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+    /* Header */
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #0284c7;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 20pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-bottom: 3px;
+    }
+    .headline {
+      font-size: 10.8pt;
+      font-weight: 600;
+      color: #0284c7;
+      margin-bottom: 6px;
+    }
+    .contact-line {
+      font-size: 8.8pt;
+      color: #475569;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .contact-line span {
+      display: inline-flex;
+      align-items: center;
+    }
+    /* Section */
+    .section {
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 10.2pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #0f172a;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 3px;
+      margin-bottom: 7px;
+    }
+    /* Summary */
+    .summary-text {
+      color: #334155;
+      font-size: 9.2pt;
+      line-height: 1.48;
+      text-align: justify;
+    }
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 4px 12px;
+      font-size: 9pt;
+      line-height: 1.4;
+    }
+    .skill-cat {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .skill-items {
+      color: #334155;
+    }
+    /* Experience */
+    .exp-item {
+      margin-bottom: 10px;
+      page-break-inside: avoid;
+    }
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .company-role {
+      font-size: 9.8pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .company-role .co-name {
+      color: #0284c7;
+    }
+    .exp-date {
+      font-size: 8.6pt;
+      font-weight: 600;
+      color: #475569;
+      white-space: nowrap;
+    }
+    .exp-location {
+      font-size: 8.4pt;
+      color: #64748b;
+      margin-bottom: 4px;
+      font-style: italic;
+    }
+    ul.bullets {
+      list-style-type: disc;
+      padding-left: 17px;
+      margin-top: 3px;
+    }
+    ul.bullets li {
+      font-size: 8.9pt;
+      color: #334155;
+      margin-bottom: 3px;
+      line-height: 1.42;
+    }
+    ul.bullets li strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+    /* Two column grid for Certs & Education */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .cred-entry {
+      margin-bottom: 5px;
+      font-size: 8.9pt;
+    }
+    .cred-name {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .cred-issuer {
+      color: #475569;
+      font-size: 8.4pt;
+    }
+    /* Project item */
+    .proj-item {
+      margin-bottom: 6px;
+    }
+    .proj-title {
+      font-weight: 700;
+      font-size: 9.3pt;
+      color: #0f172a;
+    }
+    .proj-desc {
+      font-size: 8.8pt;
+      color: #334155;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>SHUBHAM SHARMA</h1>
+    <div class="headline">Senior Consultant · Senior DevOps &amp; Platform Engineer · DevSecOps Lead</div>
+    <div class="contact-line">
+      <span>Pune, India</span>
+      <span>•</span>
+      <span><a href="mailto:shubhs248@gmail.com">shubhs248@gmail.com</a></span>
+      <span>•</span>
+      <span><a href="https://shubhs248.github.io/">shubhs248.github.io</a></span>
+      <span>•</span>
+      <span><a href="https://www.linkedin.com/in/shubhs248/">linkedin.com/in/shubhs248</a></span>
+      <span>•</span>
+      <span><a href="https://github.com/shubhs248">github.com/shubhs248</a></span>
+    </div>
+  </header>
+
+  <!-- Executive Summary -->
+  <section class="section">
+    <div class="section-title">Professional Summary</div>
+    <p class="summary-text">
+      Senior Consultant &amp; DevOps/Platform Engineer with <strong>7+ years of hands-on experience</strong> architecting resilient multi-region Kubernetes platforms, automated CI/CD/CT pipelines, shift-left DevSecOps security guardrails, and enterprise observability. Recognized track record supporting <strong>60+ enterprise managed services</strong>, reducing incident detection time (MTTD) by <strong>70%</strong>, decreasing security vulnerabilities by <strong>40%</strong>, and accelerating engineering velocity through <strong>Generative AI enablement</strong> (GitHub Copilot, GitLab Duo).
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section class="section">
+    <div class="section-title">Technical Skills Matrix</div>
+    <div class="skills-grid">
+      <div class="skill-cat">Cloud &amp; Orchestration:</div>
+      <div class="skill-items">Kubernetes (EKS/AKS), Docker, Helm, AWS (IAM, VPC, EKS, EC2, S3), Microsoft Azure, OpenShift</div>
+
+      <div class="skill-cat">DevSecOps &amp; Security:</div>
+      <div class="skill-items">GitHub Advanced Security (GHAS), SonarQube, Trivy, Burp Suite, Black Duck, SAST, DAST, SCA, CycloneDX SBOM</div>
+
+      <div class="skill-cat">GenAI Enablement:</div>
+      <div class="skill-items">GitHub Copilot, GitLab Duo, Microsoft 365 Copilot, Prompt Engineering, Local RAG (Ollama, Chroma)</div>
+
+      <div class="skill-cat">CI/CD &amp; IaC:</div>
+      <div class="skill-items">Terraform, Ansible, Jenkins (Declarative &amp; Shared Libraries), Azure DevOps, GitHub Actions, CloudFormation</div>
+
+      <div class="skill-cat">Observability &amp; SRE:</div>
+      <div class="skill-items">Prometheus, Grafana, Splunk, Datadog, Alertmanager, ServiceNow, ITIL, Root-Cause Analysis (RCA), SLA/SLO</div>
+
+      <div class="skill-cat">Languages &amp; Tooling:</div>
+      <div class="skill-items">Python, Bash Scripting, Groovy, Linux/Unix Administration, YAML, Git, Nexus, Artifactory, SonarQube</div>
+    </div>
+  </section>
+
+  <!-- Work Experience -->
+  <section class="section">
+    <div class="section-title">Professional Experience</div>
+
+    <!-- Infosys -->
+    <div class="exp-item">
+      <div class="exp-head">
+        <span class="company-role">Senior Consultant — <span class="co-name">Infosys</span></span>
+        <span class="exp-date">Aug 2026 – Present</span>
+      </div>
+      <div class="exp-location">Pune, India</div>
+      <ul class="bullets">
+        <li>Design enterprise architectural roadmaps and <strong>AI-integrated DevSecOps CI/CD/CT pipelines</strong> leveraging automated testing frameworks and intelligent delivery methodologies.</li>
+        <li>Architect multi-platform tooling integrations across <strong>GitHub, GitLab, Azure DevOps</strong>, and hybrid enterprise clouds on <strong>AWS and Azure</strong>.</li>
+        <li>Spearhead <strong>Generative AI enablement</strong> across engineering squads, coaching developers on <strong>GitHub Copilot, GitLab Duo</strong>, and Microsoft 365 Copilot to accelerate feature velocity by <strong>34%</strong>.</li>
+        <li>Embed continuous shift-left security governance utilizing <strong>SAST, DAST, and SCA</strong> tools (GitHub Advanced Security, SonarQube, Trivy, Burp Suite, Black Duck) with automated pull request quality gates.</li>
+        <li>Standardize <strong>Infrastructure as Code (IaC)</strong> module architecture and multi-environment orchestration using <strong>Terraform, Ansible, and CloudFormation</strong>.</li>
+      </ul>
+    </div>
+
+    <!-- Amdocs -->
+    <div class="exp-item">
+      <div class="exp-head">
+        <span class="company-role">Senior DevOps Engineer / DevOps Engineer — <span class="co-name">Amdocs</span></span>
+        <span class="exp-date">Jan 2022 – Aug 2026</span>
+      </div>
+      <div class="exp-location">Pune, India (Senior DevOps Engineer: Jun 2024 – Aug 2026 · DevOps Engineer: Jan 2022 – Jun 2024)</div>
+      <ul class="bullets">
+        <li>Architected centralized DevOps enablement and observability platforms supporting <strong>60+ enterprise managed services</strong> across multi-region Kubernetes clusters.</li>
+        <li>Reduced incident detection time (MTTD) by <strong>70%</strong> by designing unified Prometheus and Grafana alerting systems monitoring replication health and capacity thresholds.</li>
+        <li>Engineered <strong>17+ automated CI/CD pipelines</strong> using Python, Bash, and Jenkins Shared Libraries for compliance verification and automated cloud deployments.</li>
+        <li>Reduced reported vulnerabilities by <strong>40%</strong> by establishing SonarQube quality gate thresholds and Nexus artifact governance across 20+ enterprise applications.</li>
+        <li>Led production disaster-recovery (DR) replication simulations and blameless Root Cause Analysis (RCA) to maintain <strong>99.98% platform reliability SLA</strong>.</li>
+      </ul>
+    </div>
+
+    <!-- Cognizant -->
+    <div class="exp-item">
+      <div class="exp-head">
+        <span class="company-role">Associate DevOps Engineer / Programmer Analyst — <span class="co-name">Cognizant</span></span>
+        <span class="exp-date">Nov 2019 – Jan 2022</span>
+      </div>
+      <div class="exp-location">Pune, India</div>
+      <ul class="bullets">
+        <li>Automated Jenkins CI/CD deployment pipelines, <strong>reducing manual deployment overhead by 60%</strong> across business-critical releases.</li>
+        <li>Integrated Splunk log monitoring with ServiceNow incident management workflows, accelerating incident response and guaranteeing strict SLA compliance.</li>
+        <li>Authored automated Python and Bash maintenance scripts to eliminate repetitive operational toil, <strong>improving incident resolution time by 40%</strong>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Selected Work & Open Source -->
+  <section class="section">
+    <div class="section-title">Selected Engineering Projects</div>
+    <div class="proj-item">
+      <div class="proj-title">Operations Dashboard <span style="font-weight:400;color:#64748b;font-size:8.4pt;">(FastAPI · Kubernetes · Chart.js · Docker · Observability)</span></div>
+      <p class="proj-desc">Unified platform operations single-pane-of-glass providing real-time pod health analytics, MCP microservice metrics, and rate-aware alerting with zero-credential demo mode. <a href="https://github.com/shubhs248/Operations-Dashboard">github.com/shubhs248/Operations-Dashboard</a></p>
+    </div>
+    <div class="proj-item">
+      <div class="proj-title">DevOps LearningHub &amp; LabSensei <span style="font-weight:400;color:#64748b;font-size:8.4pt;">(Kubernetes · Terraform · Ollama · Chroma · Streamlit · RAG)</span></div>
+      <p class="proj-desc">12-lab enterprise practice suite spanning Linux, Docker, K8s, and Terraform; paired with LabSensei, an offline AI tutor leveraging local RAG and SM-2 spaced repetition. <a href="https://github.com/shubhs248/DevOps-LearningHub">github.com/shubhs248/DevOps-LearningHub</a></p>
+    </div>
+  </section>
+
+  <!-- Certifications & Education -->
+  <section class="section">
+    <div class="section-title">Certifications &amp; Education</div>
+    <div class="two-col">
+      <div>
+        <div class="cred-entry">
+          <div class="cred-name">AWS Certified Cloud Practitioner</div>
+          <div class="cred-issuer">Amazon Web Services · Valid through May 2027 · Credly Verified</div>
+        </div>
+        <div class="cred-entry">
+          <div class="cred-name">Microsoft Certified: Azure Fundamentals (AZ-900)</div>
+          <div class="cred-issuer">Microsoft · Credly Verified</div>
+        </div>
+      </div>
+      <div>
+        <div class="cred-entry">
+          <div class="cred-name">Post Graduate Program in Cloud Computing</div>
+          <div class="cred-issuer">Great Learning · 2025</div>
+        </div>
+        <div class="cred-entry">
+          <div class="cred-name">Bachelor of Engineering (B.E.), Electronics &amp; Communication</div>
+          <div class="cred-issuer">RGPV, Bhopal · 2014 – 2018</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
