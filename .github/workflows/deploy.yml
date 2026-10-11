@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -23,12 +23,37 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Build ATS Resume PDF
+        run: |
+          CHROME_BIN=$(which google-chrome || which chromium || which chromium-browser)
+          echo "Using Chrome binary: $CHROME_BIN"
+          "$CHROME_BIN" --headless --disable-gpu --no-sandbox --no-pdf-header-footer \
+            --print-to-pdf="Shubham_Sharma_Resume.pdf" \
+            "file://$GITHUB_WORKSPACE/resume.html"
+          cp "Shubham_Sharma_Resume.pdf" "resume.pdf"
+          ls -lh Shubham_Sharma_Resume.pdf resume.pdf
+
+      - name: Commit updated PDF back to repo (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Shubham_Sharma_Resume.pdf resume.pdf
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(resume): auto-generate updated ATS resume PDF [skip ci]"
+            git push
+          else
+            echo "No PDF binary changes detected."
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: "."
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
