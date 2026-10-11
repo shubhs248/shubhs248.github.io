@@ -7,7 +7,7 @@
   <style>
     @page {
       size: letter;
-      margin: 0.5in 0.55in;
+      margin: 0.46in 0.55in 0.46in 0.55in;
     }
     * {
       box-sizing: border-box;
@@ -15,162 +15,214 @@
       padding: 0;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       color: #1e293b;
       background: #ffffff;
-      line-height: 1.45;
-      font-size: 9.6pt;
+      line-height: 1.42;
+      font-size: 9pt;
       -webkit-font-smoothing: antialiased;
     }
     a {
-      color: #0284c7;
+      color: #0f172a;
       text-decoration: none;
     }
+
     /* Header */
     .header {
       text-align: center;
-      border-bottom: 2px solid #0284c7;
-      padding-bottom: 10px;
-      margin-bottom: 12px;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      border-bottom: 1.5px solid #0f172a;
     }
     h1 {
-      font-size: 20pt;
+      font-size: 19pt;
       font-weight: 800;
       color: #0f172a;
-      letter-spacing: -0.02em;
-      margin-bottom: 3px;
+      letter-spacing: -0.01em;
+      margin-bottom: 2px;
+      text-transform: uppercase;
     }
     .headline {
-      font-size: 10.8pt;
+      font-size: 9.8pt;
       font-weight: 600;
-      color: #0284c7;
-      margin-bottom: 6px;
+      color: #334155;
+      margin-bottom: 4px;
+      letter-spacing: 0.01em;
     }
     .contact-line {
-      font-size: 8.8pt;
+      font-size: 8.5pt;
       color: #475569;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 8px;
     }
-    .contact-line span {
-      display: inline-flex;
-      align-items: center;
+    .contact-line span.sep {
+      color: #94a3b8;
     }
-    /* Section */
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Styling */
     .section {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .section-title {
-      font-size: 10.2pt;
+      font-size: 9.2pt;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: #0f172a;
       border-bottom: 1px solid #cbd5e1;
-      padding-bottom: 3px;
-      margin-bottom: 7px;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
     }
-    /* Summary */
+
+    /* Professional Summary */
     .summary-text {
       color: #334155;
-      font-size: 9.2pt;
-      line-height: 1.48;
+      font-size: 8.8pt;
+      line-height: 1.44;
       text-align: justify;
     }
+
     /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 4px 12px;
-      font-size: 9pt;
-      line-height: 1.4;
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5px;
+      font-size: 8.7pt;
+      line-height: 1.38;
     }
-    .skill-cat {
+    .skill-row {
+      display: flex;
+      gap: 6px;
+    }
+    .skill-label {
       font-weight: 700;
       color: #0f172a;
+      white-space: nowrap;
+      min-width: 142px;
     }
-    .skill-items {
+    .skill-val {
       color: #334155;
     }
+
     /* Experience */
     .exp-item {
-      margin-bottom: 10px;
-      page-break-inside: avoid;
+      margin-bottom: 9px;
+    }
+    .exp-item:last-child {
+      margin-bottom: 0;
     }
     .exp-head {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
-    .company-role {
-      font-size: 9.8pt;
+    .role-title {
+      font-size: 9.4pt;
       font-weight: 700;
       color: #0f172a;
     }
-    .company-role .co-name {
-      color: #0284c7;
+    .company-name {
+      font-weight: 700;
+      color: #0f172a;
     }
     .exp-date {
-      font-size: 8.6pt;
+      font-size: 8.5pt;
       font-weight: 600;
       color: #475569;
       white-space: nowrap;
     }
-    .exp-location {
-      font-size: 8.4pt;
+    .exp-sub {
+      font-size: 8.3pt;
       color: #64748b;
-      margin-bottom: 4px;
-      font-style: italic;
+      margin-bottom: 3px;
     }
+
     ul.bullets {
       list-style-type: disc;
-      padding-left: 17px;
-      margin-top: 3px;
+      padding-left: 15px;
+      margin-top: 2px;
     }
     ul.bullets li {
-      font-size: 8.9pt;
+      font-size: 8.7pt;
       color: #334155;
-      margin-bottom: 3px;
-      line-height: 1.42;
+      margin-bottom: 2.5px;
+      line-height: 1.4;
     }
-    ul.bullets li strong {
-      color: #0f172a;
-      font-weight: 600;
+
+    /* Explicit Page Break for exact 2-page structure */
+    .page-break {
+      page-break-before: always;
+      break-before: page;
     }
-    /* Two column grid for Certs & Education */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .cred-entry {
-      margin-bottom: 5px;
-      font-size: 8.9pt;
-    }
-    .cred-name {
-      font-weight: 700;
-      color: #0f172a;
-    }
-    .cred-issuer {
-      color: #475569;
-      font-size: 8.4pt;
-    }
-    /* Project item */
+
+    /* Projects */
     .proj-item {
-      margin-bottom: 6px;
+      margin-bottom: 10px;
+    }
+    .proj-item:last-child {
+      margin-bottom: 0;
+    }
+    .proj-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
     }
     .proj-title {
       font-weight: 700;
       font-size: 9.3pt;
       color: #0f172a;
     }
+    .proj-stack {
+      font-size: 8.3pt;
+      color: #64748b;
+      font-weight: 500;
+    }
     .proj-desc {
       font-size: 8.8pt;
       color: #334155;
-      line-height: 1.4;
+      line-height: 1.42;
+    }
+    .proj-desc a {
+      color: #0284c7;
+      text-decoration: underline;
+    }
+
+    /* Two Column Grid for Certifications & Education */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .cred-group-title {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .cred-entry {
+      margin-bottom: 8px;
+    }
+    .cred-entry:last-child {
+      margin-bottom: 0;
+    }
+    .cred-name {
+      font-weight: 600;
+      font-size: 8.9pt;
+      color: #0f172a;
+    }
+    .cred-issuer {
+      color: #64748b;
+      font-size: 8.3pt;
+      line-height: 1.35;
     }
   </style>
 </head>
@@ -178,139 +230,170 @@
 
   <!-- Header -->
   <header class="header">
-    <h1>SHUBHAM SHARMA</h1>
-    <div class="headline">Senior Consultant · Senior DevOps &amp; Platform Engineer · DevSecOps Lead</div>
+    <h1>Shubham Sharma</h1>
+    <div class="headline">Senior Platform / DevOps Engineer · DevSecOps &amp; Cloud Infrastructure Consultant</div>
     <div class="contact-line">
       <span>Pune, India</span>
-      <span>•</span>
+      <span class="sep">·</span>
       <span><a href="mailto:shubhs248@gmail.com">shubhs248@gmail.com</a></span>
-      <span>•</span>
+      <span class="sep">·</span>
       <span><a href="https://shubhs248.github.io/">shubhs248.github.io</a></span>
-      <span>•</span>
+      <span class="sep">·</span>
       <span><a href="https://www.linkedin.com/in/shubhs248/">linkedin.com/in/shubhs248</a></span>
-      <span>•</span>
+      <span class="sep">·</span>
       <span><a href="https://github.com/shubhs248">github.com/shubhs248</a></span>
     </div>
   </header>
 
-  <!-- Executive Summary -->
+  <!-- Professional Summary -->
   <section class="section">
     <div class="section-title">Professional Summary</div>
     <p class="summary-text">
-      Senior Consultant &amp; DevOps/Platform Engineer with <strong>7+ years of hands-on experience</strong> architecting resilient multi-region Kubernetes platforms, automated CI/CD/CT pipelines, shift-left DevSecOps security guardrails, and enterprise observability. Recognized track record supporting <strong>60+ enterprise managed services</strong>, reducing incident detection time (MTTD) by <strong>70%</strong>, decreasing security vulnerabilities by <strong>40%</strong>, and accelerating engineering velocity through <strong>Generative AI enablement</strong> (GitHub Copilot, GitLab Duo).
+      Senior Platform / DevOps Engineer with 7+ years of hands-on experience architecting resilient multi-region Kubernetes platforms, automated CI/CD/CT delivery pipelines, shift-left DevSecOps security guardrails, and enterprise observability. Proven track record supporting 60+ enterprise managed services, reducing mean time to detect incidents (MTTD) by 70%, decreasing reported vulnerabilities by 40%, and accelerating developer productivity through Generative AI enablement across GitHub Copilot and GitLab Duo.
     </p>
   </section>
 
-  <!-- Skills -->
+  <!-- Technical Competencies -->
   <section class="section">
-    <div class="section-title">Technical Skills Matrix</div>
-    <div class="skills-grid">
-      <div class="skill-cat">Cloud &amp; Orchestration:</div>
-      <div class="skill-items">Kubernetes (EKS/AKS), Docker, Helm, AWS (IAM, VPC, EKS, EC2, S3), Microsoft Azure, OpenShift</div>
-
-      <div class="skill-cat">DevSecOps &amp; Security:</div>
-      <div class="skill-items">GitHub Advanced Security (GHAS), SonarQube, Trivy, Burp Suite, Black Duck, SAST, DAST, SCA, CycloneDX SBOM</div>
-
-      <div class="skill-cat">GenAI Enablement:</div>
-      <div class="skill-items">GitHub Copilot, GitLab Duo, Microsoft 365 Copilot, Prompt Engineering, Local RAG (Ollama, Chroma)</div>
-
-      <div class="skill-cat">CI/CD &amp; IaC:</div>
-      <div class="skill-items">Terraform, Ansible, Jenkins (Declarative &amp; Shared Libraries), Azure DevOps, GitHub Actions, CloudFormation</div>
-
-      <div class="skill-cat">Observability &amp; SRE:</div>
-      <div class="skill-items">Prometheus, Grafana, Splunk, Datadog, Alertmanager, ServiceNow, ITIL, Root-Cause Analysis (RCA), SLA/SLO</div>
-
-      <div class="skill-cat">Languages &amp; Tooling:</div>
-      <div class="skill-items">Python, Bash Scripting, Groovy, Linux/Unix Administration, YAML, Git, Nexus, Artifactory, SonarQube</div>
+    <div class="section-title">Technical Competencies</div>
+    <div class="skills-list">
+      <div class="skill-row">
+        <span class="skill-label">Cloud &amp; Orchestration:</span>
+        <span class="skill-val">Kubernetes (EKS, AKS), Docker, Helm, AWS (IAM, VPC, EKS, EC2, S3), Microsoft Azure, OpenShift</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">DevSecOps &amp; Security:</span>
+        <span class="skill-val">GitHub Advanced Security (GHAS), SonarQube, Trivy, Burp Suite, Black Duck, SAST, DAST, SCA, CycloneDX SBOM</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">CI/CD &amp; Infrastructure:</span>
+        <span class="skill-val">Terraform, Ansible, Jenkins (Declarative &amp; Shared Libraries), Azure DevOps, GitHub Actions, CloudFormation</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Observability &amp; SRE:</span>
+        <span class="skill-val">Prometheus, Grafana, Splunk, Datadog, Alertmanager, ServiceNow, ITIL, Root-Cause Analysis (RCA), SLA/SLO</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">GenAI Enablement:</span>
+        <span class="skill-val">GitHub Copilot, GitLab Duo, Microsoft 365 Copilot, Prompt Engineering, Local RAG (Ollama, Chroma)</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Languages &amp; Tooling:</span>
+        <span class="skill-val">Python, Bash Scripting, Groovy, Linux/Unix Administration, YAML, Git, Nexus, Artifactory</span>
+      </div>
     </div>
   </section>
 
-  <!-- Work Experience -->
+  <!-- Professional Experience (Page 1) -->
   <section class="section">
     <div class="section-title">Professional Experience</div>
 
     <!-- Infosys -->
     <div class="exp-item">
       <div class="exp-head">
-        <span class="company-role">Senior Consultant — <span class="co-name">Infosys</span></span>
+        <span class="role-title">Senior Consultant — <span class="company-name">Infosys</span></span>
         <span class="exp-date">Aug 2026 – Present</span>
       </div>
-      <div class="exp-location">Pune, India</div>
+      <div class="exp-sub">Pune, India</div>
       <ul class="bullets">
-        <li>Design enterprise architectural roadmaps and <strong>AI-integrated DevSecOps CI/CD/CT pipelines</strong> leveraging automated testing frameworks and intelligent delivery methodologies.</li>
-        <li>Architect multi-platform tooling integrations across <strong>GitHub, GitLab, Azure DevOps</strong>, and hybrid enterprise clouds on <strong>AWS and Azure</strong>.</li>
-        <li>Spearhead <strong>Generative AI enablement</strong> across engineering squads, coaching developers on <strong>GitHub Copilot, GitLab Duo</strong>, and Microsoft 365 Copilot to accelerate feature velocity by <strong>34%</strong>.</li>
-        <li>Embed continuous shift-left security governance utilizing <strong>SAST, DAST, and SCA</strong> tools (GitHub Advanced Security, SonarQube, Trivy, Burp Suite, Black Duck) with automated pull request quality gates.</li>
-        <li>Standardize <strong>Infrastructure as Code (IaC)</strong> module architecture and multi-environment orchestration using <strong>Terraform, Ansible, and CloudFormation</strong>.</li>
+        <li>Design enterprise architectural roadmaps and AI-integrated DevSecOps CI/CD/CT pipelines leveraging automated testing frameworks and intelligent delivery methodologies.</li>
+        <li>Architect multi-platform tooling integrations across GitHub, GitLab, Azure DevOps, and hybrid enterprise clouds on AWS and Azure.</li>
+        <li>Lead Generative AI enablement across engineering squads, coaching developers on GitHub Copilot, GitLab Duo, and Microsoft 365 Copilot to accelerate feature velocity by 34%.</li>
+        <li>Embed continuous shift-left security governance utilizing SAST, DAST, and SCA tools (GitHub Advanced Security, SonarQube, Trivy, Burp Suite, Black Duck) with automated pull request quality gates.</li>
+        <li>Standardize Infrastructure as Code (IaC) module architecture and multi-environment provisioning using Terraform, Ansible, and CloudFormation.</li>
       </ul>
     </div>
 
     <!-- Amdocs -->
-    <div class="exp-item">
+    <div class="exp-item" style="margin-top: 8px;">
       <div class="exp-head">
-        <span class="company-role">Senior DevOps Engineer / DevOps Engineer — <span class="co-name">Amdocs</span></span>
+        <span class="role-title">Senior DevOps Engineer / DevOps Engineer — <span class="company-name">Amdocs</span></span>
         <span class="exp-date">Jan 2022 – Aug 2026</span>
       </div>
-      <div class="exp-location">Pune, India (Senior DevOps Engineer: Jun 2024 – Aug 2026 · DevOps Engineer: Jan 2022 – Jun 2024)</div>
+      <div class="exp-sub">Pune, India (Senior DevOps Engineer: Jun 2024 – Aug 2026 · DevOps Engineer: Jan 2022 – Jun 2024)</div>
       <ul class="bullets">
-        <li>Architected centralized DevOps enablement and observability platforms supporting <strong>60+ enterprise managed services</strong> across multi-region Kubernetes clusters.</li>
-        <li>Reduced incident detection time (MTTD) by <strong>70%</strong> by designing unified Prometheus and Grafana alerting systems monitoring replication health and capacity thresholds.</li>
-        <li>Engineered <strong>17+ automated CI/CD pipelines</strong> using Python, Bash, and Jenkins Shared Libraries for compliance verification and automated cloud deployments.</li>
-        <li>Reduced reported vulnerabilities by <strong>40%</strong> by establishing SonarQube quality gate thresholds and Nexus artifact governance across 20+ enterprise applications.</li>
-        <li>Led production disaster-recovery (DR) replication simulations and blameless Root Cause Analysis (RCA) to maintain <strong>99.98% platform reliability SLA</strong>.</li>
+        <li>Architected centralized DevOps enablement and observability platforms supporting 60+ enterprise managed services across multi-region Kubernetes clusters.</li>
+        <li>Reduced incident detection time (MTTD) by 70% by designing unified Prometheus and Grafana alerting systems monitoring replication health and capacity thresholds.</li>
+        <li>Engineered 17+ automated CI/CD pipelines using Python, Bash, and Jenkins Shared Libraries for compliance verification and automated cloud deployments.</li>
+        <li>Reduced reported vulnerabilities by 40% by establishing SonarQube quality gate thresholds and Nexus artifact governance across 20+ enterprise applications.</li>
+        <li>Led production disaster-recovery (DR) replication simulations and blameless Root Cause Analysis (RCA) to maintain 99.98% platform reliability SLA.</li>
       </ul>
     </div>
+  </section>
+
+  <!-- Page Break for Clean 2nd Page Layout -->
+  <div class="page-break"></div>
+
+  <!-- Professional Experience Continued (Page 2) -->
+  <section class="section" style="padding-top: 2px;">
+    <div class="section-title">Professional Experience (Continued)</div>
 
     <!-- Cognizant -->
     <div class="exp-item">
       <div class="exp-head">
-        <span class="company-role">Associate DevOps Engineer / Programmer Analyst — <span class="co-name">Cognizant</span></span>
+        <span class="role-title">Associate DevOps Engineer / Programmer Analyst — <span class="company-name">Cognizant</span></span>
         <span class="exp-date">Nov 2019 – Jan 2022</span>
       </div>
-      <div class="exp-location">Pune, India</div>
+      <div class="exp-sub">Pune, India</div>
       <ul class="bullets">
-        <li>Automated Jenkins CI/CD deployment pipelines, <strong>reducing manual deployment overhead by 60%</strong> across business-critical releases.</li>
+        <li>Automated Jenkins CI/CD deployment pipelines, reducing manual deployment overhead by 60% across business-critical enterprise releases.</li>
         <li>Integrated Splunk log monitoring with ServiceNow incident management workflows, accelerating incident response and guaranteeing strict SLA compliance.</li>
-        <li>Authored automated Python and Bash maintenance scripts to eliminate repetitive operational toil, <strong>improving incident resolution time by 40%</strong>.</li>
+        <li>Authored automated Python and Bash maintenance scripts to eliminate repetitive operational toil, improving incident resolution time by 40%.</li>
       </ul>
     </div>
   </section>
 
-  <!-- Selected Work & Open Source -->
+  <!-- Featured Engineering Projects -->
   <section class="section">
-    <div class="section-title">Selected Engineering Projects</div>
+    <div class="section-title">Featured Engineering Projects</div>
+
     <div class="proj-item">
-      <div class="proj-title">Operations Dashboard <span style="font-weight:400;color:#64748b;font-size:8.4pt;">(FastAPI · Kubernetes · Chart.js · Docker · Observability)</span></div>
-      <p class="proj-desc">Unified platform operations single-pane-of-glass providing real-time pod health analytics, MCP microservice metrics, and rate-aware alerting with zero-credential demo mode. <a href="https://github.com/shubhs248/Operations-Dashboard">github.com/shubhs248/Operations-Dashboard</a></p>
+      <div class="proj-head">
+        <span class="proj-title">Operations Dashboard</span>
+        <span class="proj-stack">FastAPI · Kubernetes · Docker · Chart.js · Observability</span>
+      </div>
+      <p class="proj-desc">
+        Unified platform operations single-pane-of-glass providing real-time pod health analytics, MCP microservice metrics, and rate-aware alerting with zero-credential demo mode.
+        Repository: <a href="https://github.com/shubhs248/Operations-Dashboard">github.com/shubhs248/Operations-Dashboard</a>
+      </p>
     </div>
-    <div class="proj-item">
-      <div class="proj-title">DevOps LearningHub &amp; LabSensei <span style="font-weight:400;color:#64748b;font-size:8.4pt;">(Kubernetes · Terraform · Ollama · Chroma · Streamlit · RAG)</span></div>
-      <p class="proj-desc">12-lab enterprise practice suite spanning Linux, Docker, K8s, and Terraform; paired with LabSensei, an offline AI tutor leveraging local RAG and SM-2 spaced repetition. <a href="https://github.com/shubhs248/DevOps-LearningHub">github.com/shubhs248/DevOps-LearningHub</a></p>
+
+    <div class="proj-item" style="margin-top: 8px;">
+      <div class="proj-head">
+        <span class="proj-title">DevOps LearningHub &amp; LabSensei</span>
+        <span class="proj-stack">Kubernetes · Terraform · Ollama · Chroma · Streamlit · Local RAG</span>
+      </div>
+      <p class="proj-desc">
+        12-lab enterprise practice suite spanning Linux, Docker, K8s, and Terraform; paired with LabSensei, an offline AI tutor leveraging local RAG and SM-2 spaced repetition algorithms.
+        Repository: <a href="https://github.com/shubhs248/DevOps-LearningHub">github.com/shubhs248/DevOps-LearningHub</a>
+      </p>
     </div>
   </section>
 
   <!-- Certifications & Education -->
-  <section class="section">
+  <section class="section" style="margin-top: 14px;">
     <div class="section-title">Certifications &amp; Education</div>
     <div class="two-col">
       <div>
+        <div class="cred-group-title">Certifications</div>
         <div class="cred-entry">
           <div class="cred-name">AWS Certified Cloud Practitioner</div>
-          <div class="cred-issuer">Amazon Web Services · Valid through May 2027 · Credly Verified</div>
+          <div class="cred-issuer">Amazon Web Services · Valid through May 2027 (Credly Verified)</div>
         </div>
         <div class="cred-entry">
           <div class="cred-name">Microsoft Certified: Azure Fundamentals (AZ-900)</div>
-          <div class="cred-issuer">Microsoft · Credly Verified</div>
+          <div class="cred-issuer">Microsoft (Credly Verified)</div>
         </div>
       </div>
       <div>
+        <div class="cred-group-title">Education</div>
         <div class="cred-entry">
           <div class="cred-name">Post Graduate Program in Cloud Computing</div>
           <div class="cred-issuer">Great Learning · 2025</div>
         </div>
         <div class="cred-entry">
           <div class="cred-name">Bachelor of Engineering (B.E.), Electronics &amp; Communication</div>
-          <div class="cred-issuer">RGPV, Bhopal · 2014 – 2018</div>
+          <div class="cred-issuer">Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV) · 2014 – 2018</div>
         </div>
       </div>
     </div>
